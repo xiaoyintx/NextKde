@@ -8,6 +8,9 @@
     
     ../../gpu/nvidia.nix
     
+    ../../fonts/maple-mono-nf-cn.nix
+    ../../fonts/sarasa-gothic.nix
+    
     ../../desktop/gnome/config.nix
     
     ../../input-method/fcitx5.nix
