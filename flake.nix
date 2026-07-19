@@ -53,6 +53,13 @@
           system = "x86_64-linux";
           modules = [
             ./hosts/common.nix  # 主入口点
+            ({ config, pkgs, ... }: {
+              nixpkgs.overlays = [
+                (final: prev: {
+                  localpkg = import ./package { callPackage = final.callPackage; };
+                })
+              ];
+            })
           ];
           specialArgs = {
             inherit hostName;

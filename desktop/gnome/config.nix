@@ -28,8 +28,6 @@
     flameshot
     colloid-icon-theme
     alacarte
-    ffmpeg
-    mpv
   ] ++ (with pkgs.gnomeExtensions; [
     # GNOME 扩展
     blur-my-shell
@@ -42,7 +40,6 @@
     fuzzy-app-search
     copyous
     activate-linux
-    gnome-wallpaper-engine
     workspace-indicator
     coverflow-alt-tab
     app-hider
