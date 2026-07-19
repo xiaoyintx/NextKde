@@ -14,16 +14,17 @@
       enable = true;
     };
   };
-  
+
   programs.nautilus-open-any-terminal = {
     enable = true;
     # terminal = "ghostty";
   };
-  
+
   environment.systemPackages = with pkgs; [
     # 普通软件包
     ghostty
     refine
+    gnome-tweaks
     flameshot
     colloid-icon-theme
     alacarte
@@ -42,9 +43,12 @@
     copyous
     activate-linux
     gnome-wallpaper-engine
+    workspace-indicator
+    coverflow-alt-tab
+    app-hider
   ]);
-  
-  programs.dconf = { 
+
+  programs.dconf = {
     enable = true;
     profiles.user.databases = [
       {
@@ -56,14 +60,14 @@
       }
     ];
   };
-  
-  environment.gnome.excludePackages = with pkgs; [ 
+
+  environment.gnome.excludePackages = with pkgs; [
     gnome-console # use ghostty as gnome's default terminal
     gnome-tour
     gnome-user-docs
     epiphany  # GNOME Web 浏览器
   ];
-  
+
   # 启用声音
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
