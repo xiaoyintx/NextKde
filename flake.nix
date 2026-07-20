@@ -49,15 +49,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # CachyOS 内核
-    chaotic = {
+    nix-cachyos-kernel = {
       # Github 镜像源
-      url = "git+https://v6.gh-proxy.org/https://github.com/chaotic-cx/nyx.git?ref=nyxpkgs-unstable";
+      url = "git+https://v6.gh-proxy.org/https://github.com/xddxdd/nix-cachyos-kernel.git?ref=release";
       # 主源（官方Git）
-      # url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+      # url = "github:xddxdd/nix-cachyos-kernel/release";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-waywallen, chaotic, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-waywallen, nix-cachyos-kernel, ... }@inputs:
     let
       # 定义所有主机
       hosts = [
@@ -76,9 +76,9 @@
                 (final: prev: {
                   localpkg = import ./package { callPackage = final.callPackage; };
                 })
+                nix-cachyos-kernel.overlays.pinned
               ];
             })
-            chaotic.nixosModules.default
           ];
           specialArgs = {
             inherit hostName;
