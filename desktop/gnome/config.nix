@@ -17,7 +17,6 @@
 
   programs.nautilus-open-any-terminal = {
     enable = true;
-    # terminal = "ghostty";
   };
 
   environment.systemPackages = with pkgs; [
@@ -27,9 +26,11 @@
     gnome-tweaks
     flameshot
     colloid-icon-theme
-    alacarte
     seahorse
+    mission-center
+    # gtk3 主题
     adw-gtk3
+    # 动态壁纸
     waywallen
     # waywallen gnome 拓展
     waywallen-gnome
@@ -54,6 +55,7 @@
     caffeine
     compiz-alike-magic-lamp-effect
     applications-overview-tooltip
+    dynamic-music-pill
   ]);
 
   programs.dconf = {

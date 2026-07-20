@@ -22,8 +22,11 @@
     ../../software/steam.nix
     ../../software/lutris.nix
     ../../software/splayer.nix
+    ../../software/obs-studio.nix
   ];
 
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;
+  
   system.stateVersion = "26.11";
 
   i18n.defaultLocale = "zh_CN.UTF-8";

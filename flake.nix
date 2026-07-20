@@ -48,9 +48,16 @@
       # url = "github:gettbitgirl/nix-waywallen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # CachyOS 内核
+    chaotic = {
+      # Github 镜像源
+      url = "git+https://v6.gh-proxy.org/https://github.com/chaotic-cx/nyx.git?ref=nyxpkgs-unstable";
+      # 主源（官方Git）
+      # url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-waywallen, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-waywallen, chaotic, ... }@inputs:
     let
       # 定义所有主机
       hosts = [
@@ -71,6 +78,7 @@
                 })
               ];
             })
+            chaotic.nixosModules.default
           ];
           specialArgs = {
             inherit hostName;
