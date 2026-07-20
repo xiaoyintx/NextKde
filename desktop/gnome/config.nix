@@ -51,7 +51,6 @@
     coverflow-alt-tab
     app-hider
     rounded-window-corners-reborn
-    lock-keys
     caffeine
     compiz-alike-magic-lamp-effect
     applications-overview-tooltip
