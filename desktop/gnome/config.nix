@@ -54,7 +54,6 @@
     caffeine
     compiz-alike-magic-lamp-effect
     applications-overview-tooltip
-    luminus-desktop
   ]);
 
   programs.dconf = {
