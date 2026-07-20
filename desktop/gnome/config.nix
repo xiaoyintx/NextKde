@@ -56,6 +56,7 @@
     compiz-alike-magic-lamp-effect
     applications-overview-tooltip
     dynamic-music-pill
+    arcmenu
   ]);
 
   programs.dconf = {
