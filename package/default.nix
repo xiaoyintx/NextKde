@@ -4,5 +4,5 @@
 }:
 
 {
-  
+  fcitx5-window-state = callPackage ./fcitx5-window-state { };
 }

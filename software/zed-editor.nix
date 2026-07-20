@@ -6,5 +6,16 @@
     home.packages = with pkgs; [
       zed-editor-fhs
     ];
+    programs.zed-editor = {
+      extensions = [
+        "nix"
+        "colored-zed-icons-theme"
+        "fleet-themes"
+        "git-firefly"
+      ];
+      extraPackages = with pkgs; [
+        nixd
+      ];
+    };
   };
 }

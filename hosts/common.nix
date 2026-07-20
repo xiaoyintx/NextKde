@@ -37,7 +37,9 @@ in {
     };
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   # 所有主机的通用配置
   networking = {

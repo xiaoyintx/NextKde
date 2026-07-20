@@ -33,6 +33,8 @@
     waywallen
     # waywallen gnome 拓展
     waywallen-gnome
+    # 本地打包的 GNOME 扩展
+    localpkg.fcitx5-window-state
   ] ++ (with pkgs.gnomeExtensions; [
     # GNOME 扩展
     blur-my-shell
@@ -48,6 +50,12 @@
     workspace-indicator
     coverflow-alt-tab
     app-hider
+    rounded-window-corners-reborn
+    lock-keys
+    caffeine
+    compiz-alike-magic-lamp-effect
+    applications-overview-tooltip
+    luminus-desktop
   ]);
 
   programs.dconf = {
