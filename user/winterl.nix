@@ -5,7 +5,6 @@
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager"];
     hashedPassword = "$6$mszOvBy9MzYIQyoF$YaXe8p05SKdWnorNZWu3GPzBC54JKFhcH8S4VAk7qW6xm43b3FjKAwLKstet7UIjIlGKkAK81ccCLOXfi5lcN1";
-    shell = pkgs.nushell;
   };
   
   # Git全局配置
@@ -39,6 +38,7 @@
     # ghostty 设置
     xdg.configFile."ghostty/config.ghostty" = {
       text = ''
+      command = nu
       # ========================================================
       # 核心原则：
       # 1. Ctrl+字母 -> 执行编辑器类功能（复制/粘贴/移动/删除）

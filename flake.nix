@@ -38,9 +38,19 @@
       # url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # 动态壁纸
+    nix-waywallen = {
+      # Github 镜像源
+      url = "git+https://v6.gh-proxy.org/https://github.com/gettbitgirl/nix-waywallen.git";
+
+      # 主源（官方Git）
+      # url = "github:gettbitgirl/nix-waywallen";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-waywallen, ... }@inputs:
     let
       # 定义所有主机
       hosts = [
@@ -55,6 +65,7 @@
             ./hosts/common.nix  # 主入口点
             ({ config, pkgs, ... }: {
               nixpkgs.overlays = [
+                nix-waywallen.overlays.default
                 (final: prev: {
                   localpkg = import ./package { callPackage = final.callPackage; };
                 })

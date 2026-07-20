@@ -28,6 +28,11 @@
     flameshot
     colloid-icon-theme
     alacarte
+    seahorse
+    adw-gtk3
+    waywallen
+    # waywallen gnome 拓展
+    waywallen-gnome
   ] ++ (with pkgs.gnomeExtensions; [
     # GNOME 扩展
     blur-my-shell
