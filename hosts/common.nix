@@ -41,6 +41,17 @@ in {
     allowUnfree = true;
   };
 
+  nix.settings = {
+    trusted-users = ["root"];
+    extra-substituters = [
+      "https://mirror.sjtu.edu.cn/nix-channels/store"
+      "https://attic.xuyh0120.win/lantian"
+    ];
+    extra-trusted-public-keys = [
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+    ];
+  };
+
   # 所有主机的通用配置
   networking = {
     hostName = lib.mkDefault hostName;

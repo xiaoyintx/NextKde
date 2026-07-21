@@ -6,6 +6,7 @@
   
   # NVIDIA 硬件配置
   hardware = {
+    graphics.enable = true;
     # 启用 NVIDIA 驱动
     nvidia = {
       # modesetting

@@ -25,7 +25,7 @@
     ../../software/obs-studio.nix
   ];
 
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-bore;
+  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
   
   system.stateVersion = "26.11";
 
