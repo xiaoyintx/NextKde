@@ -7,11 +7,11 @@
       steam
     ];
   };
-  
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true; 
+    dedicatedServer.openFirewall = true;
     extraCompatPackages = with pkgs; [ dwproton-bin ];
   };
 }

@@ -19,7 +19,7 @@
       nvidiaSettings = false;
       
       # DRM (Direct Rendering Manager)
-      open = false;  # 使用闭源驱动，更稳定
+      open = true;
       
       # 动态电源管理
       powerManagement.finegrained = false;

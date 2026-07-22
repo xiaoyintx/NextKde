@@ -19,7 +19,7 @@
     nixos-hardware = {
       # Gitee 镜像源：NixOS 针对特定硬件的优化（需要 ssh key）
       url = "git+ssh://git@gitee.com/mirrors/nixos-hardware.git";
-      
+
       # Github 镜像源：NixOS 针对特定硬件的优化
       #url = "git+https://v6.gh-proxy.org/https://github.com/NixOS/nixos-hardware.git";
 
@@ -30,7 +30,7 @@
     home-manager = {
       # Gitee 镜像源：Home Manager（需要 ssh key）
       url = "git+ssh://git@gitee.com/mirrors/home-manager-nix.git";
-      
+
       # Github 镜像源：Home Manager
       #url = "git+https://v6.gh-proxy.org/https://github.com/nix-community/home-manager.git";
 
@@ -63,7 +63,7 @@
       hosts = [
         "rog-m16"
       ];
-      
+
       # 为每个主机创建 NixOS 配置
       mkHost = hostName:
         nixpkgs.lib.nixosSystem {
@@ -96,4 +96,3 @@
       );
     };
 }
-

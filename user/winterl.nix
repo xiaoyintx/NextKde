@@ -6,7 +6,7 @@
     extraGroups = ["wheel" "networkmanager"];
     hashedPassword = "$6$mszOvBy9MzYIQyoF$YaXe8p05SKdWnorNZWu3GPzBC54JKFhcH8S4VAk7qW6xm43b3FjKAwLKstet7UIjIlGKkAK81ccCLOXfi5lcN1";
   };
-  
+
   # Git全局配置
   programs.git = {
     enable = true;
@@ -18,7 +18,7 @@
     };
   };
 
-  
+
   home-manager.users.winterl = { config, pkgs, ... }: {
     # shell 设置
     programs = {
@@ -34,7 +34,7 @@
         enableNushellIntegration = true;
       };
     };
-  
+
     # ghostty 设置
     xdg.configFile."ghostty/config.ghostty" = {
       text = ''
@@ -118,9 +118,9 @@
       '';
       force = true;
     };
-  
+
     # 输入法设置
-    
+
     ## default.custom.yaml - 只切换方案
     xdg.dataFile."fcitx5/rime/default.custom.yaml" = {
       text = ''
@@ -175,4 +175,3 @@
     };
   };
 }
-

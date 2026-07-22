@@ -44,6 +44,7 @@ in {
   nix.settings = {
     trusted-users = ["root"];
     extra-substituters = [
+      "https://mirror.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirror.sjtu.edu.cn/nix-channels/store"
       "https://attic.xuyh0120.win/lantian"
     ];
