@@ -16,13 +16,17 @@
       powerManagement.enable = true;
       
       # NVIDIA 设置工具
-      nvidiaSettings = false;
+      nvidiaSettings = true;
       
       # DRM (Direct Rendering Manager)
       open = true;
       
       # 动态电源管理
-      powerManagement.finegrained = false;
+      powerManagement = {
+        finegrained = false;
+      };
+
+      dynamicBoost.enable = true;
       
       package = config.boot.kernelPackages.nvidiaPackages.stable;
     };
