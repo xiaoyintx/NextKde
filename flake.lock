@@ -233,7 +233,8 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nix-waywallen": "nix-waywallen",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "zen-browser": "zen-browser"
       }
     },
     "waywallen-display-src": {
@@ -266,6 +267,29 @@
         "owner": "waywallen",
         "repo": "waywallen",
         "type": "github"
+      }
+    },
+    "zen-browser": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784834038,
+        "narHash": "sha256-7kFP+NUILPvdhO7mQk90h2MnseMNvYzGPpclhmJEKF0=",
+        "ref": "refs/heads/main",
+        "rev": "35443b74c3481fb963ee0a53175ab0e8001f2967",
+        "revCount": 1225,
+        "type": "git",
+        "url": "https://v6.gh-proxy.org/https://github.com/0xc000022070/zen-browser-flake.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://v6.gh-proxy.org/https://github.com/0xc000022070/zen-browser-flake.git"
       }
     }
   },

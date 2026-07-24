@@ -15,7 +15,9 @@
 
     ../../input-method/fcitx5.nix
 
+    ../../software/clash.nix
     ../../software/zed-editor.nix
+    ../../software/browser/zen.nix
     ../../software/qq.nix
     ../../software/wechat.nix
     ../../software/feishu.nix

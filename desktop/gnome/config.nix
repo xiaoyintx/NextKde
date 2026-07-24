@@ -1,11 +1,6 @@
 { config, pkgs, lib, hostName, ... }:
 
 {
-  imports = [
-    ../../software/browser/firefox.nix
-    ../../software/clash.nix
-  ];
-
   services = {
     desktopManager.gnome = {
       enable = true;
