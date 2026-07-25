@@ -88,5 +88,6 @@ in
     pciutils
     nixfmt-rs
     nixd
+    nil
   ];
 }
