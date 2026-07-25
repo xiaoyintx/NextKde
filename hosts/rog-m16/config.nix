@@ -36,11 +36,16 @@
   services.asusd.enable = true;
 
   # KVM
-  virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu = {
+      swtpm.enable = true;
+    };
+  };
   programs.virt-manager.enable = true;
   users.users.winterl.extraGroups = [ "libvirtd" ];
-  environment.systemPackages = with pkgs; [ 
-    dnsmasq 
+  environment.systemPackages = with pkgs; [
+    dnsmasq
   ];
 
   # Kernel
