@@ -72,5 +72,8 @@ in {
     fastfetch
     helix
     git
+    pciutils
+    nixfmt-rs
+    nixd
   ];
 }
