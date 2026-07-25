@@ -1,6 +1,10 @@
-{ lib, stdenv, fetchurl }:
+{
+  lib,
+  stdenv,
+  fetchurl,
+}:
 
-stdenv.mkDerivation rec {
+stdenv.mkDerivation {
   pname = "gnome-shell-extension-fcitx5-window-state";
   version = "1";
 

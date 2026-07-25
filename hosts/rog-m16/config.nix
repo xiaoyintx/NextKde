@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hostName, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -53,15 +53,17 @@
 
   # NVIDIA Prime
   hardware.nvidia.prime = {
-      intelBusId = "PCI:0@0:2:0";
-      nvidiaBusId = "PCI:1@0:0:0";
+    intelBusId = "PCI:0@0:2:0";
+    nvidiaBusId = "PCI:1@0:0:0";
   };
 
   system.stateVersion = "26.11";
 
   i18n.defaultLocale = "zh_CN.UTF-8";
 
-  home-manager.users.winterl = { config, pkgs, ... }: {
-    home.stateVersion = "26.11";
-  };
+  home-manager.users.winterl =
+    { ... }:
+    {
+      home.stateVersion = "26.11";
+    };
 }

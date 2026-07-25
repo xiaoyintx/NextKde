@@ -1,4 +1,4 @@
-{ config, pkgs, lib, hostName, ... }:
+{ pkgs, ... }:
 
 {
   services = {
@@ -14,45 +14,48 @@
     enable = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    # 普通软件包
-    ghostty
-    refine
-    gnome-tweaks
-    flameshot
-    colloid-icon-theme
-    seahorse
-    mission-center
-    # gtk3 主题
-    adw-gtk3
-    # 动态壁纸
-    waywallen
-    # waywallen gnome 拓展
-    waywallen-gnome
-    # 本地打包的 GNOME 扩展
-    localpkg.fcitx5-window-state
-  ] ++ (with pkgs.gnomeExtensions; [
-    # GNOME 扩展
-    blur-my-shell
-    kimpanel
-    dash-to-panel
-    appindicator
-    just-perfection
-    gtk4-desktop-icons-ng-ding
-    user-themes
-    fuzzy-app-search
-    copyous
-    activate-linux
-    workspace-indicator
-    coverflow-alt-tab
-    app-hider
-    rounded-window-corners-reborn
-    caffeine
-    compiz-alike-magic-lamp-effect
-    applications-overview-tooltip
-    dynamic-music-pill
-    arcmenu
-  ]);
+  environment.systemPackages =
+    with pkgs;
+    [
+      # 普通软件包
+      ghostty
+      refine
+      gnome-tweaks
+      flameshot
+      colloid-icon-theme
+      seahorse
+      mission-center
+      # gtk3 主题
+      adw-gtk3
+      # 动态壁纸
+      waywallen
+      # waywallen gnome 拓展
+      waywallen-gnome
+      # 本地打包的 GNOME 扩展
+      localpkg.fcitx5-window-state
+    ]
+    ++ (with pkgs.gnomeExtensions; [
+      # GNOME 扩展
+      blur-my-shell
+      kimpanel
+      dash-to-panel
+      appindicator
+      just-perfection
+      gtk4-desktop-icons-ng-ding
+      user-themes
+      fuzzy-app-search
+      copyous
+      activate-linux
+      workspace-indicator
+      coverflow-alt-tab
+      app-hider
+      rounded-window-corners-reborn
+      caffeine
+      compiz-alike-magic-lamp-effect
+      applications-overview-tooltip
+      dynamic-music-pill
+      arcmenu
+    ]);
 
   programs.dconf = {
     enable = true;
@@ -71,7 +74,7 @@
     gnome-console # use ghostty as gnome's default terminal
     gnome-tour
     gnome-user-docs
-    epiphany  # GNOME Web 浏览器
+    epiphany # GNOME Web 浏览器
   ];
 
   # 启用声音

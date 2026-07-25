@@ -1,4 +1,11 @@
-{ config, pkgs, lib, hostName, inputs, home-manager, self, ... }:
+{
+  pkgs,
+  lib,
+  hostName,
+  inputs,
+  home-manager,
+  ...
+}:
 
 let
   # 导入硬件配置
@@ -11,12 +18,18 @@ let
   hardwareExists = builtins.pathExists hardwareConfig;
   hostConfigExists = builtins.pathExists hostConfig;
 
-in {
+in
+{
   # 只导入硬件配置和主机配置
   # 主机配置（config.nix）会负责导入所有模块
   imports = [
     # 首先导入硬件配置
-    (if hardwareExists then hardwareConfig else (throw "Hardware configuration not found for ${hostName}"))
+    (
+      if hardwareExists then
+        hardwareConfig
+      else
+        (throw "Hardware configuration not found for ${hostName}")
+    )
 
     # 然后导入主机特定配置（这个文件会导入所有模块）
     (if hostConfigExists then hostConfig else (throw "Host configuration not found for ${hostName}"))
@@ -45,7 +58,7 @@ in {
   };
 
   nix.settings = {
-    trusted-users = ["root"];
+    trusted-users = [ "root" ];
     extra-substituters = [
       "https://mirror.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirror.sjtu.edu.cn/nix-channels/store"

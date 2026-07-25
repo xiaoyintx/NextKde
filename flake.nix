@@ -69,7 +69,15 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nix-waywallen, nix-cachyos-kernel, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nix-waywallen,
+      nix-cachyos-kernel,
+      ...
+    }@inputs:
     let
       # 定义所有主机
       hosts = [
@@ -77,20 +85,24 @@
       ];
 
       # 为每个主机创建 NixOS 配置
-      mkHost = hostName:
+      mkHost =
+        hostName:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            ./hosts/common.nix  # 主入口点
-            ({ config, pkgs, ... }: {
-              nixpkgs.overlays = [
-                nix-waywallen.overlays.default
-                (final: prev: {
-                  localpkg = import ./package { callPackage = final.callPackage; };
-                })
-                nix-cachyos-kernel.overlays.pinned
-              ];
-            })
+            ./hosts/common.nix # 主入口点
+            (
+              { ... }:
+              {
+                nixpkgs.overlays = [
+                  nix-waywallen.overlays.default
+                  (final: prev: {
+                    localpkg = import ./package { callPackage = final.callPackage; };
+                  })
+                  nix-cachyos-kernel.overlays.pinned
+                ];
+              }
+            )
           ];
           specialArgs = {
             inherit hostName;
@@ -99,7 +111,8 @@
             inherit self;
           };
         };
-    in {
+    in
+    {
       nixosConfigurations = builtins.listToAttrs (
         map (host: {
           name = host;

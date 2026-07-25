@@ -1,5 +1,3 @@
-{ config, pkgs, lib, hostName, ... }:
-
 {
   boot.loader = {
     grub = {

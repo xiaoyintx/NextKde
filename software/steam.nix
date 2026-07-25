@@ -1,12 +1,14 @@
-{ config, pkgs, lib, inputs, ... }:
+{ pkgs, ... }:
 
 {
   # 使用 Home Manager 安装 steam
-  home-manager.users.winterl = { config, pkgs, ... }: {
-    home.packages = with pkgs; [
-      steam
-    ];
-  };
+  home-manager.users.winterl =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        steam
+      ];
+    };
 
   programs.steam = {
     enable = true;
