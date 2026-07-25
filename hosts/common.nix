@@ -39,6 +39,9 @@ in {
 
   nixpkgs.config = {
     allowUnfree = true;
+    replacements = {
+      "https://github.com/" = "https://v6.gh-proxy.org/https://github.com/";
+    };
   };
 
   nix.settings = {
@@ -54,6 +57,10 @@ in {
   };
 
   # 所有主机的通用配置
+  environment.etc."gitconfig".text = ''
+    [url "https://v6.gh-proxy.org/https://github.com/"]
+      insteadOf = https://github.com/
+  '';
   networking = {
     hostName = lib.mkDefault hostName;
     networkmanager.enable = true;

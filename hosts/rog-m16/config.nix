@@ -2,19 +2,20 @@
 
 {
   imports = [
-    ../../boot/grub.nix
-
+    # Boot Loader
+    ../../boot/system-boot.nix
+    # User
     ../../user/winterl.nix
-
+    # GPU
     ../../gpu/nvidia.nix
-
+    # Fonts
     ../../fonts/maple-mono-nf-cn.nix
     ../../fonts/sarasa-gothic.nix
-
+    # Desktop Environment
     ../../desktop/gnome/config.nix
-
+    # Input Method
     ../../input-method/fcitx5.nix
-
+    # Desktop Software
     ../../software/clash.nix
     ../../software/zed-editor.nix
     ../../software/browser/zen.nix
@@ -27,14 +28,25 @@
     ../../software/obs-studio.nix
   ];
 
+  # ROG Control Center
   programs.rog-control-center = {
     enable = true;
     autoStart = true;
   };
   services.asusd.enable = true;
 
+  # KVM
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.users.winterl.extraGroups = [ "libvirtd" ];
+  environment.systemPackages = with pkgs; [ 
+    dnsmasq 
+  ];
+
+  # Kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
 
+  # NVIDIA Prime
   hardware.nvidia.prime = {
       intelBusId = "PCI:0@0:2:0";
       nvidiaBusId = "PCI:1@0:0:0";
