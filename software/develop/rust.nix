@@ -9,5 +9,14 @@
         rustfmt
         rust-analyzer
       ];
+      home.file.".cargo/config.toml" = {
+        text = ''
+          [source.crates-io]
+          replace-with = "ustc"
+          [source.ustc]
+          registry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"
+        '';
+        force = true;
+      };
     };
 }
