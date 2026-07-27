@@ -27,6 +27,7 @@
     ../../software/splayer.nix
     ../../software/obs-studio.nix
     # Develop
+    ../../software/develop/clang.nix
     ../../software/develop/zig.nix
     ../../software/develop/rust.nix
     ../../software/develop/csharp.nix

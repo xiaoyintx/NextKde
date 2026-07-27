@@ -4,9 +4,7 @@
     { pkgs, ... }:
     {
       home.packages = with pkgs; [
-        zig
-        (writeShellScriptBin "zcc" ''exec zig cc "$@"'')
-        (writeShellScriptBin "z++" ''exec zig c++ "$@"'')
+        clang
       ];
     };
 }
