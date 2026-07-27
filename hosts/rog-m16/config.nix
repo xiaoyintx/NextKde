@@ -26,6 +26,9 @@
     ../../software/lutris.nix
     ../../software/splayer.nix
     ../../software/obs-studio.nix
+    # Develop
+    ../../software/develop/rust.nix
+    ../../software/develop/csharp.nix
   ];
 
   # ROG Control Center
