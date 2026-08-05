@@ -80,6 +80,8 @@ in
   };
   time.timeZone = lib.mkDefault "Asia/Shanghai";
   i18n.defaultLocale = lib.mkDefault "en_US.UTF-8";
+  # 让未修改的动态链接程序也能运行
+  programs.nix-ld.enable = true;
 
   environment.systemPackages = with pkgs; [
     fastfetch

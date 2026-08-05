@@ -5,6 +5,7 @@
     {
       home.packages = with pkgs; [
         zig
+        zls
         (writeShellScriptBin "zcc" ''exec zig cc "$@"'')
         (writeShellScriptBin "z++" ''exec zig c++ "$@"'')
       ];
