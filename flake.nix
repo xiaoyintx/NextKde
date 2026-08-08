@@ -38,16 +38,6 @@
       # url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # 动态壁纸
-    nix-waywallen = {
-      # Github 镜像源
-      url = "git+https://v6.gh-proxy.org/https://github.com/gettbitgirl/nix-waywallen.git";
-
-      # 主源（官方Git）
-      # url = "github:gettbitgirl/nix-waywallen";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     # CachyOS 内核
     nix-cachyos-kernel = {
       # Github 镜像源
@@ -62,7 +52,6 @@
       self,
       nixpkgs,
       home-manager,
-      nix-waywallen,
       nix-cachyos-kernel,
       ...
     }@inputs:
@@ -83,7 +72,6 @@
               { ... }:
               {
                 nixpkgs.overlays = [
-                  nix-waywallen.overlays.default
                   (final: prev: {
                     localpkg = import ./package { callPackage = final.callPackage; };
                   })

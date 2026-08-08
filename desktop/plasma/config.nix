@@ -7,18 +7,24 @@
     };
     desktopManager.plasma6.enable = true;
   };
-  
+
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+    konsole
+  ];
+
   environment.systemPackages =
     with pkgs;
     [
       # 普通软件包
+      ghostty
       colloid-icon-theme
       mission-center
       # gtk3 主题
       adw-gtk3
       # 动态壁纸
-      waywallen
-      waywallen-kde
+      localpkg.waywallen-ui
+      localpkg.waywallen-open-wallpaper-engine
+      localpkg.waywallen-kde
     ]
     ++ (with pkgs.kdePackages; [
       plasma-browser-integration

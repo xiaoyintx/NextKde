@@ -75,29 +75,6 @@
         "url": "https://v6.gh-proxy.org/https://github.com/xddxdd/nix-cachyos-kernel.git"
       }
     },
-    "nix-waywallen": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ],
-        "open-wallpaper-engine-src": "open-wallpaper-engine-src",
-        "waywallen-display-src": "waywallen-display-src",
-        "waywallen-src": "waywallen-src"
-      },
-      "locked": {
-        "lastModified": 1785032121,
-        "narHash": "sha256-Dq5vSN2Tp4k6e4rFwoL+ZaGOyhI/Kti9E1tGnT1nMMo=",
-        "ref": "refs/heads/main",
-        "rev": "54211d40d9cdd97930816e6baaa076285d199102",
-        "revCount": 48,
-        "type": "git",
-        "url": "https://v6.gh-proxy.org/https://github.com/gettbitgirl/nix-waywallen.git"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://v6.gh-proxy.org/https://github.com/gettbitgirl/nix-waywallen.git"
-      }
-    },
     "nixos-hardware": {
       "inputs": {
         "nixpkgs": "nixpkgs_2"
@@ -177,64 +154,12 @@
         "url": "https://mirrors.nju.edu.cn/git/nixpkgs.git"
       }
     },
-    "open-wallpaper-engine-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1783864811,
-        "narHash": "sha256-nfYef1gLgblMZVNlDIs8gdumJi8hZxebPnm9BSrW45M=",
-        "owner": "waywallen",
-        "repo": "open-wallpaper-engine",
-        "rev": "0d7f92f4c6945ed3f759c0e84f25b0831eaee31c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "waywallen",
-        "ref": "v0.1.12",
-        "repo": "open-wallpaper-engine",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
-        "nix-waywallen": "nix-waywallen",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3"
-      }
-    },
-    "waywallen-display-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1783175765,
-        "narHash": "sha256-ofNvXDpLP9eH+MdefqAYa1FbBMNopO493X+3rQLkjIs=",
-        "owner": "waywallen",
-        "repo": "waywallen-display",
-        "rev": "fc653114cea2b9f11b1b5114ff1df732bc7d91c3",
-        "type": "github"
-      },
-      "original": {
-        "owner": "waywallen",
-        "ref": "v0.2.8",
-        "repo": "waywallen-display",
-        "type": "github"
-      }
-    },
-    "waywallen-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1783873601,
-        "narHash": "sha256-xojP0C+q+1CcXAtxHALjaoMaJtjzuGk0A2RW8mAxwaE=",
-        "owner": "waywallen",
-        "repo": "waywallen",
-        "rev": "67950ba0e70b8ba675dc2b98cbf29e163ef8338a",
-        "type": "github"
-      },
-      "original": {
-        "owner": "waywallen",
-        "ref": "v0.2.5",
-        "repo": "waywallen",
-        "type": "github"
       }
     }
   },

@@ -28,9 +28,10 @@
       # gtk3 主题
       adw-gtk3
       # 动态壁纸
-      waywallen
+      localpkg.waywallen-ui
+      localpkg.waywallen-open-wallpaper-engine
       # waywallen gnome 拓展
-      waywallen-gnome
+      localpkg.waywallen-gnome
       # 本地打包的 GNOME 扩展
       localpkg.fcitx5-window-state
     ]

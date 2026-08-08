@@ -1,0 +1,27 @@
+{ lib, appimageTools, fetchurl }:
+
+appimageTools.wrapType2 rec {
+  pname = "waywallen";
+  version = "0.3.1";
+
+  src = fetchurl {
+    url = "https://v6.gh-proxy.org/https://github.com/waywallen/waywallen/releases/download/v${version}/waywallen-${version}-x86_64.AppImage";
+    hash = "sha256-R1m2gJ1OyOMRmg8AJF/YEDt1JmzQNfA/8BU/uL93oys=";  # 首次构建报错后填入
+  };
+
+  extraPkgs = pkgs: with pkgs; [
+    dbus
+    libxkbcommon
+    fontconfig
+    freetype
+    libGL
+  ];
+
+  meta = {
+    description = "Waywallen display management UI (Qt/QML)";
+    homepage = "https://github.com/waywallen/waywallen";
+    license = lib.licenses.mit;
+    platforms = [ "x86_64-linux" ];
+    mainProgram = "waywallen";
+  };
+}
