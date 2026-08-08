@@ -9,16 +9,16 @@ let
   };
 in
 {
-  #environment.systemPackages = with pkgs; [
-  #  fcitx5-mellow-themes
-  #];
   i18n.inputMethod = {
     enable = true;
     type = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      rime # 使用我们定制后的 rime 包
-      fcitx5-gtk
-      kdePackages.fcitx5-qt
-    ];
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        rime # 使用我们定制后的 rime 包
+        fcitx5-gtk
+        kdePackages.fcitx5-qt
+      ];
+    };
   };
 }

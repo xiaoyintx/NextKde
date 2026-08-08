@@ -82,7 +82,7 @@
         name = "wechat";
         genericName = "Wechat Desktop";
         comment = "微信桌面版";
-        exec = "env FONTCONFIG_FILE=${config.home.homeDirectory}/.config/wechat-fonts/local.conf wechat %U";
+        exec = "env FONTCONFIG_FILE=${config.home.homeDirectory}/.config/wechat-fonts/local.conf QT_IM_MODULE=fcitx wechat %U";
         icon = "wechat";
         terminal = false;
         categories = [
