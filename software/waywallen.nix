@@ -1,15 +1,31 @@
 {
   home-manager.users.winterl = { config, pkgs, ... }: {
-    # waywallen 桌面程序（AppImage）
+    # 你的现有配置：安装 waywallen-ui 和软链插件
     home.packages = [
       pkgs.localpkg.waywallen-ui
     ];
 
-    # waywallen 插件：从系统 store 软链到用户插件目录
-    # （waywallen 只扫描 ~/.local/share/waywallen/plugins/，不扫系统路径）
     home.file = {
       ".local/share/waywallen/plugins/org.waywallen.open-wallpaper-engine".source =
         "${pkgs.localpkg.waywallen-open-wallpaper-engine}/share/waywallen/plugins/org.waywallen.open-wallpaper-engine";
+    };
+
+    # ---- waywallen 用户服务 ----
+    systemd.user.services.waywallen = {
+      Unit = {
+        Description = "Waywallen Daemon (no UI)";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = "${pkgs.localpkg.waywallen-ui}/bin/waywallen --no-ui";
+        Restart = "on-failure";
+        RestartSec = 5;
+        Type = "simple";
+      };
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
     };
   };
 }

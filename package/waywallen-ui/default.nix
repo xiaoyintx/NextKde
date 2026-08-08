@@ -19,6 +19,22 @@ appimageTools.wrapType2 rec {
     pipewire       # PipeWire 客户端
   ];
 
+  # wrapType2 不会自动生成 .desktop，这里手动补一个
+  extraInstallCommands = ''
+    mkdir -p $out/share/applications
+    cat > $out/share/applications/waywallen.desktop <<'EOF'
+    [Desktop Entry]
+    Type=Application
+    Name=Waywallen
+    Comment=Waywallen Display Management
+    Exec=waywallen
+    Icon=waywallen
+    StartupWMClass=waywallen
+    Categories=Utility;
+    Terminal=false
+    EOF
+  '';
+
   meta = {
     description = "Waywallen display management UI (Qt/QML)";
     homepage = "https://github.com/waywallen/waywallen";
