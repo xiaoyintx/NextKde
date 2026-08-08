@@ -89,7 +89,6 @@ in
     git
     pciutils
     nixfmt-rs
-    nixd
     nil
   ];
 }

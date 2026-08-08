@@ -12,15 +12,18 @@
     ../../fonts/maple-mono-nf-cn.nix
     ../../fonts/sarasa-gothic.nix
     # Desktop Environment
-    ../../desktop/gnome/config.nix
+    ../../desktop/plasma/config.nix
+    # ../../desktop/gnome/config.nix
     # ../../desktop/cosmic/config.nix
     # Input Method
     ../../input-method/fcitx5.nix
     # Desktop Software
     ../../software/clash.nix
     ../../software/zed-editor.nix
-    # ../../software/browser/zen.nix
-    ../../software/browser/brave.nix
+    # Browser
+    # ../../software/browser/firefox.nix
+    ../../software/browser/zen.nix
+    # ../../software/browser/brave.nix
     ../../software/qq.nix
     ../../software/wechat.nix
     ../../software/feishu.nix

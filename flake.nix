@@ -55,18 +55,6 @@
       # 主源（官方Git）
       # url = "github:xddxdd/nix-cachyos-kernel/release";
     };
-
-    # Zen Browser
-    zen-browser = {
-      # Github 镜像源
-      url = "git+https://v6.gh-proxy.org/https://github.com/0xc000022070/zen-browser-flake.git";
-      # 主源（官方Git）
-      # url = "github:0xc000022070/zen-browser-flake";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        home-manager.follows = "home-manager";
-      };
-    };
   };
 
   outputs =
