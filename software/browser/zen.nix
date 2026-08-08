@@ -1,13 +1,13 @@
 {
   pkgs,
+  inputs,
   ...
 }:
 let
-  zen-browser-flake = import (builtins.fetchTarball {
-    url = "https://v6.gh-proxy.org/https://github.com/youwen5/zen-browser-flake/archive/master.tar.gz";
-    sha256 = "1xy6szz0l294av7iz97klbb9v259018mbsg46429zyx86zymcr61"; 
-  }) { inherit pkgs; };
+  # 通过 flake input 引入 zen-browser-flake，版本由 flake.lock 锁定，
+  # 升级时只需执行 nix flake update zen-browser-flake，无需手动更新 sha256。
+  zen-browser = inputs.zen-browser-flake.packages.${pkgs.stdenv.hostPlatform.system}.zen-browser;
 in
 {
-  home-manager.users.winterl.home.packages = [ zen-browser-flake.zen-browser ];
+  home-manager.users.winterl.home.packages = [ zen-browser ];
 }

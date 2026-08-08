@@ -159,7 +159,28 @@
         "home-manager": "home-manager",
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixos-hardware": "nixos-hardware",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "zen-browser-flake": "zen-browser-flake"
+      }
+    },
+    "zen-browser-flake": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786164819,
+        "narHash": "sha256-tvBlGAYyzHYdLwn035bRCrB1mcMjvNNavcNZ293AIIA=",
+        "ref": "refs/heads/master",
+        "rev": "f9af5f7017cea1c159e17922288fb38ff94d28cd",
+        "revCount": 331,
+        "type": "git",
+        "url": "https://v6.gh-proxy.org/https://github.com/youwen5/zen-browser-flake.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://v6.gh-proxy.org/https://github.com/youwen5/zen-browser-flake.git"
       }
     }
   },

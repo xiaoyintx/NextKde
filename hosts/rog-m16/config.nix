@@ -33,6 +33,7 @@
     ../../software/lutris.nix
     ../../software/splayer.nix
     ../../software/obs-studio.nix
+    ../../software/moonlight.nix
     # Develop
     ../../software/develop/clang.nix
     ../../software/develop/zig.nix

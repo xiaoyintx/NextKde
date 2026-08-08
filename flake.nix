@@ -45,6 +45,14 @@
       # 主源（官方Git）
       # url = "github:xddxdd/nix-cachyos-kernel/release";
     };
+
+    # Zen Browser（通过 flake.lock 锁定版本，无需手动更新 sha256）
+    zen-browser-flake = {
+      url = "git+https://v6.gh-proxy.org/https://github.com/youwen5/zen-browser-flake.git";
+      # 推荐：跟随主 nixpkgs，共享系统库、避免重复下载 nixpkgs
+      # 注意：如果构建 Zen 报错，优先尝试删掉这一行
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
