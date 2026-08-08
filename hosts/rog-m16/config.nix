@@ -20,12 +20,9 @@
     # Input Method
     ../../input-method/fcitx5.nix
     # Desktop Software
-    ../../software/clash.nix
+    ../../software/v2rayn.nix
     ../../software/zed-editor.nix
-    # Browser
-    # ../../software/browser/firefox.nix
     ../../software/browser/zen.nix
-    # ../../software/browser/brave.nix
     ../../software/qq.nix
     ../../software/wechat.nix
     ../../software/feishu.nix
