@@ -27,9 +27,6 @@
       mission-center
       # gtk3 主题
       adw-gtk3
-      # 动态壁纸
-      localpkg.waywallen-ui
-      localpkg.waywallen-open-wallpaper-engine
       # waywallen gnome 拓展
       localpkg.waywallen-gnome
       # 本地打包的 GNOME 扩展

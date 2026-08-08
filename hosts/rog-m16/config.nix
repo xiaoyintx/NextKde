@@ -15,6 +15,8 @@
     ../../desktop/plasma/config.nix
     # ../../desktop/gnome/config.nix
     # ../../desktop/cosmic/config.nix
+    # Wallpaper
+    ../../software/waywallen.nix
     # Input Method
     ../../input-method/fcitx5.nix
     # Desktop Software

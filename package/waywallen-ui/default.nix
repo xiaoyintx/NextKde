@@ -15,6 +15,8 @@ appimageTools.wrapType2 rec {
     fontconfig
     freetype
     libGL
+    libpulseaudio  # 壁纸音频输出
+    pipewire       # PipeWire 客户端
   ];
 
   meta = {

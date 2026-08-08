@@ -22,8 +22,6 @@
       # gtk3 主题
       adw-gtk3
       # 动态壁纸
-      localpkg.waywallen-ui
-      localpkg.waywallen-open-wallpaper-engine
       localpkg.waywallen-kde
     ]
     ++ (with pkgs.kdePackages; [

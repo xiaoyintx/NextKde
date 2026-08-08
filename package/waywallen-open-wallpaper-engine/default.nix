@@ -32,6 +32,8 @@
   fontconfig,
   freetype,
   libdrm,
+  libpulseaudio,  # wavsen 音频后端
+  libva,          # wavsen VA-API 硬解
 }:
 
 stdenv.mkDerivation (finalAttrs: {
@@ -81,6 +83,9 @@ stdenv.mkDerivation (finalAttrs: {
     systemd
     alsa-lib
     libdrm
+    # wavsen 音频
+    libpulseaudio
+    libva
   ];
 
   dontUnpack = true;
@@ -103,21 +108,16 @@ stdenv.mkDerivation (finalAttrs: {
     echo "=== 解压内容 ==="
     find . -maxdepth 2 -mindepth 1 | sort
 
-    mkdir -p $out/share/waywallen
+    mkdir -p $out/share/waywallen/plugins/org.waywallen.open-wallpaper-engine
 
-    # 自动探测插件根目录
-    SRC=""
-    for d in */; do
-      if [ -d "$d" ]; then
-        SRC="$d"
-        break
-      fi
-    done
-    if [ -z "$SRC" ]; then
-      SRC="."
+    # 直接解压 zip 后放入插件目录：
+    # 若顶层只有一个目录则取其内容，否则取全部内容
+    SUBDIR=$(find . -mindepth 1 -maxdepth 1 -type d | head -1)
+    if [ -n "$SUBDIR" ] && [ $(find . -mindepth 1 -maxdepth 1 | wc -l) -eq 1 ]; then
+      cp -rT "$SUBDIR" $out/share/waywallen/plugins/org.waywallen.open-wallpaper-engine
+    else
+      cp -rT . $out/share/waywallen/plugins/org.waywallen.open-wallpaper-engine
     fi
-
-    cp -rT "$SRC" $out/share/waywallen/open-wallpaper-engine
 
     runHook postInstall
   '';
