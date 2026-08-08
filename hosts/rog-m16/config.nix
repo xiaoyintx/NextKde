@@ -7,6 +7,7 @@
     # User
     ../../user/winterl.nix
     # GPU
+    ../../gpu/intel.nix
     ../../gpu/nvidia.nix
     # Fonts
     ../../fonts/maple-mono-nf-cn.nix
