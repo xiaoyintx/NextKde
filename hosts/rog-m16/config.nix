@@ -3,7 +3,7 @@
 {
   imports = [
     # Boot Loader
-    ../../boot/system-boot.nix
+    ../../boot/limine.nix
     # User
     ../../user/winterl.nix
     # GPU
@@ -39,6 +39,8 @@
     ../../software/develop/zig.nix
     ../../software/develop/rust.nix
     ../../software/develop/csharp.nix
+    # KVM
+    ./kvm.nix
   ];
 
   # ROG Control Center
@@ -48,27 +50,8 @@
   };
   services.asusd.enable = true;
 
-  # KVM
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      swtpm.enable = true;
-    };
-  };
-  programs.virt-manager.enable = true;
-  users.users.winterl.extraGroups = [ "libvirtd" ];
-  environment.systemPackages = with pkgs; [
-    dnsmasq
-  ];
-
   # Kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-
-  # NVIDIA Prime
-  hardware.nvidia.prime = {
-    intelBusId = "PCI:0@0:2:0";
-    nvidiaBusId = "PCI:1@0:0:0";
-  };
 
   system.stateVersion = "26.11";
 
