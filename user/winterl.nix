@@ -20,7 +20,7 @@
   };
 
   home-manager.users.winterl =
-    { ... }:
+    { config, ... }:
     {
       # shell 设置
       programs = {
@@ -33,6 +33,63 @@
           enable = true;
           enableNushellIntegration = true;
         };
+      };
+
+      # 微信专用 fontconfig 配置（不修改全局 fonts.fontconfig）
+      xdg.configFile."wechat-fonts/local.conf" = {
+        text = ''
+          <?xml version="1.0"?>
+          <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+          <fontconfig>
+
+            <match target="pattern">
+              <test qual="any" name="family"><string>Microsoft YaHei UI</string></test>
+              <edit name="family" mode="assign" binding="same">
+                <string>Sarasa UI SC</string>
+              </edit>
+            </match>
+
+            <match target="pattern">
+              <test qual="any" name="family"><string>Microsoft YaHei</string></test>
+              <edit name="family" mode="assign" binding="same">
+                <string>Sarasa UI SC</string>
+              </edit>
+            </match>
+
+            <match target="pattern">
+              <test qual="any" name="family"><string>Noto Sans SC</string></test>
+              <edit name="family" mode="assign" binding="same">
+                <string>Sarasa UI SC</string>
+              </edit>
+            </match>
+
+            <match target="pattern">
+              <test qual="any" name="family"><string>sans-serif</string></test>
+              <edit name="family" mode="prepend" binding="strong">
+                <string>Sarasa UI SC</string>
+              </edit>
+            </match>
+
+            <include ignore_missing="yes">/etc/fonts/fonts.conf</include>
+
+          </fontconfig>
+        '';
+        force = true;
+      };
+
+      # 覆盖微信 desktop 文件，使其通过 FONTCONFIG_FILE 使用上面的字体配置启动
+      xdg.desktopEntries.wechat = {
+        name = "wechat";
+        genericName = "Wechat Desktop";
+        comment = "微信桌面版";
+        exec = "env FONTCONFIG_FILE=${config.home.homeDirectory}/.config/wechat-fonts/local.conf wechat %U";
+        icon = "wechat";
+        terminal = false;
+        categories = [
+          "Utility"
+        ];
+        startupNotify = true;
+        type = "Application";
       };
 
       # ghostty 设置
