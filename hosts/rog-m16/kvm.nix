@@ -16,6 +16,11 @@ let
     secureBoot = true;
     msVarsTemplate = true;
   }).fd;
+
+  ssdt = pkgs.fetchurl {
+    url = "https://lantian.pub/usr/uploads/202007/ssdt1.dat";
+    sha256 = "07403kfy2s6v1x844l69pn7v88cqx1yjrqbnnpwfvz9h3kf3x5qx";
+  };
 in
 {
   specialisation."GPUPaththrough".configuration = {
@@ -36,9 +41,11 @@ in
     ];
   };
 
-  # 给 libvirt 提供不会包含 Nix store 哈希的固定固件路径。
+  # 安全启动密钥，假电池
   systemd.tmpfiles.rules = [
     "L+ /run/ovmf-ms - - - - ${ovmfMs}"
+    "d /opt/UserItems 0755 root root -"
+    "L+ /opt/UserItems/ssdt.dat - - - - ${ssdt}"
   ];
 
   # KVM
