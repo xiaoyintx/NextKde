@@ -8,9 +8,13 @@
     desktopManager.plasma6.enable = true;
   };
 
+  # 防火墙
+  networking.nftables.enable = true;
+
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
     discover
+    plasma-firewall
   ];
 
   environment.systemPackages =

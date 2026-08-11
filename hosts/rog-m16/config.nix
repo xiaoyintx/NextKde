@@ -20,6 +20,8 @@
     ../../software/waywallen.nix
     # Input Method
     ../../input-method/fcitx5.nix
+    # Service
+    ../../software/services/x-ui.nix
     # Desktop Software
     ../../software/v2rayn.nix
     ../../software/zed-editor.nix
@@ -40,7 +42,7 @@
     # KVM
     ./kvm.nix
   ];
-
+  
   # ROG Control Center
   programs.rog-control-center = {
     enable = true;

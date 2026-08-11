@@ -36,6 +36,7 @@
         xray
         mihomo
         sing-box
+        metacubexd
         v2ray-geoip
         v2ray-domain-list-community
       ];
