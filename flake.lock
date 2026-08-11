@@ -80,11 +80,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1784723954,
-        "narHash": "sha256-1CfD8ZUjCkTgjsneLZ/lxCHhgDfqxxE7/GX0MmsgiqA=",
+        "lastModified": 1785232496,
+        "narHash": "sha256-65EQYIRRpTdpH8lUiB6Mvo5uBkG60aBIzAJuALfx+O0=",
         "ref": "refs/heads/master",
-        "rev": "a017f5b72210026af5b3ac5949f08d94380a6fbd",
-        "revCount": 2824,
+        "rev": "2e790b0a6be8ec2b76174ac0931b8ff11919ec98",
+        "revCount": 2826,
         "type": "git",
         "url": "ssh://git@gitee.com/mirrors/nixos-hardware.git"
       },
@@ -139,10 +139,10 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1785828668,
-        "narHash": "sha256-8fsyqeO+mJqvIzeO4xIpgJe/f7MTbbVTEC6RT6WSXNs=",
+        "lastModified": 1786247143,
+        "narHash": "sha256-8S3Kcxs7D4UtxJxSJZz0m14CGhuW0MxfrIwJxeGWGnQ=",
         "ref": "nixos-unstable",
-        "rev": "e72e4f299401a3689d4b3d5fc6496b11db7064eb",
+        "rev": "279b4a8275f032c566576b3f181fa0f27197f588",
         "shallow": true,
         "type": "git",
         "url": "https://mirrors.nju.edu.cn/git/nixpkgs.git"
@@ -170,11 +170,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1786164819,
-        "narHash": "sha256-tvBlGAYyzHYdLwn035bRCrB1mcMjvNNavcNZ293AIIA=",
+        "lastModified": 1786424696,
+        "narHash": "sha256-cyMeyF4QCZF7YL5+ynYZMDIA2LChF3L51ZLP6BvJ1L4=",
         "ref": "refs/heads/master",
-        "rev": "f9af5f7017cea1c159e17922288fb38ff94d28cd",
-        "revCount": 331,
+        "rev": "64791844717b786a93dde8f76c8a35222e53cf53",
+        "revCount": 333,
         "type": "git",
         "url": "https://v6.gh-proxy.org/https://github.com/youwen5/zen-browser-flake.git"
       },
