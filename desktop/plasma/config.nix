@@ -9,7 +9,7 @@
   };
 
   # 防火墙
-  networking.nftables.enable = true;
+  networking.firewall.enable = true;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     konsole
