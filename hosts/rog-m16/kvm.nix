@@ -60,6 +60,14 @@ in
     };
   };
 
+  # libvirt 的默认 NAT 网络通过 virbr0 向虚拟机提供 DHCP、DNS 和转发。
+  # 将网桥设为可信接口，避免 NixOS 防火墙阻断虚拟机获取地址。
+  # dae 会改变路由路径，使用 loose rpfilter 避免合法的转发流量被反向路径检查丢弃。
+  networking.firewall = {
+    trustedInterfaces = [ "virbr0" ];
+    checkReversePath = "loose";
+  };
+
   users.users.winterl.extraGroups = [ "libvirtd" ];
   environment.systemPackages = with pkgs; [
     virt-manager
