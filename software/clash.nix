@@ -1,10 +1,1 @@
-{
-  # 使用 Home Manager 安装 clash gui
-  home-manager.users.winterl =
-    { pkgs, ... }:
-    {
-      home.packages = with pkgs; [
-        sparkle
-      ];
-    };
-}
+# 这里代理使用 https://github.com/nelvko/clash-for-linux-install.git 内的项目

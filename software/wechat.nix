@@ -1,5 +1,5 @@
 {
-  home-manager.users.winterl =
+  home-manager.users.xiaoyintx =
     { pkgs, config, ... }:
     {
       home.packages = with pkgs; [
