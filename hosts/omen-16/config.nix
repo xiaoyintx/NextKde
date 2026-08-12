@@ -87,11 +87,6 @@
       boot.kernelPackages = pkgs.linuxPackages_lts;
     };
 
-    # CachyOS 内核：针对游戏/桌面性能优化
-    "linux-cachyos".configuration = {
-      boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
-    };
-  };
 
   # 限制 GRUB 保留的旧内核项数量，避免长期 rebuild 后 ESP 累积
   boot.loader.grub = {
