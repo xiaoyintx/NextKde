@@ -29,7 +29,6 @@
       plasma-browser-integration
       qtwebsockets
       qtstyleplugin-kvantum
-      klassy
     ]);
 
   # 启用声音

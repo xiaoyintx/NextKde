@@ -5,7 +5,7 @@
   inputs = {
     nixpkgs = {
       # 主镜像源：南京大学（速度快，推荐）
-      url = "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
+      url = "git+https://mirrors.ustc.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
 
       # 备选镜像源：清华大学
       # url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
@@ -38,13 +38,7 @@
       # url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # CachyOS 内核
-    nix-cachyos-kernel = {
-      # Github 镜像源
-      url = "git+https://v6.gh-proxy.org/https://github.com/xddxdd/nix-cachyos-kernel.git?ref=release";
-      # 主源（官方Git）
-      # url = "github:xddxdd/nix-cachyos-kernel/release";
-    };
+
 
   };
 
@@ -53,7 +47,7 @@
       self,
       nixpkgs,
       home-manager,
-      nix-cachyos-kernel,
+
       ...
     }@inputs:
     let
@@ -76,7 +70,7 @@
                   (final: prev: {
                     localpkg = import ./package { callPackage = final.callPackage; };
                   })
-                  nix-cachyos-kernel.overlays.pinned
+
                 ];
               }
             )
