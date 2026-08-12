@@ -64,35 +64,6 @@
     };
   };
 
-  # NVIDIA 高功耗场景用专属性能模式（与 nvidia.powerManagement 协同）
-  services.tlp = {
-    enable = true;
-    settings = {
-      # 电池优先省电，接电优先性能
-      CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-      CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
-      # 禁止 NVIDIA 独占显存时仍激活独显（交给 runtime PM 管理）
-      RUNTIME_PM_DRIVER_BLACKLIST = "";
-    };
-  };
-
-  # ============================================================
-  # 多内核启动项（GRUB 菜单可选）
-  # 默认内核：NixOS 官方 unstable（上述 boot.kernelPackages）
-  # specialisation 会为每个内核生成独立的 "NixOS (<name>)" 启动项
-  # ============================================================
-  specialisation = {
-    # LTS 内核：NixOS 长期支持版，稳定优先
-    "linux-lts".configuration = {
-      boot.kernelPackages = pkgs.linuxPackages_lts;
-    };
-
-
-  # 限制 GRUB 保留的旧内核项数量，避免长期 rebuild 后 ESP 累积
-  boot.loader.grub = {
-    configurationLimit = 10;
-    timeout = 5; # 秒
-  };
 
   # ============================================================
   # 系统
