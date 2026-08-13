@@ -12,19 +12,24 @@
   networking.firewall.enable = true;
 
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
-    konsole
     discover
     plasma-firewall
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages =
+    with pkgs;
+    [
+      # Terminal
+      konsole
+
       # 图标
       colloid-icon-theme
       # 控制面板
       mission-center
       # Terminal
 
-    ]++ (with pkgs.kdePackages; [
+    ]
+    ++ (with pkgs.kdePackages; [
       plasma-browser-integration
       qtwebsockets
       qtstyleplugin-kvantum
