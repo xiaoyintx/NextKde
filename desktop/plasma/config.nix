@@ -11,11 +11,6 @@
   # 防火墙
   networking.firewall.enable = true;
 
-  environment.systemPackages = with pkgs.kdePackages; [
-    discover
-    plasma-firewall
-    konsole
-  ];
 
   environment.systemPackages =
     with pkgs;
@@ -32,6 +27,9 @@
       plasma-browser-integration
       qtwebsockets
       qtstyleplugin-kvantum
+      discover
+      plasma-firewall
+      konsole
     ]);
 
   # 启用声音
