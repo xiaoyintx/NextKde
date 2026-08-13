@@ -33,6 +33,7 @@
     ../../software/steam.nix
     ../../software/lutris.nix
     ../../software/obs-studio.nix
+    ../../software/opencode.nix
     ../../software/moonlight.nix
     # Develop
     ../../software/develop/clang.nix
