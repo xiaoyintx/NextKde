@@ -85,6 +85,7 @@ in
 
   environment.systemPackages = with pkgs; [
     fastfetch
+    nvim
     helix
     git
     pciutils

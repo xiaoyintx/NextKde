@@ -24,6 +24,8 @@
       colloid-icon-theme
       # 控制面板
       mission-center
+      # Terminal
+      konsole
     ]
     ++ (with pkgs.kdePackages; [
       plasma-browser-integration
