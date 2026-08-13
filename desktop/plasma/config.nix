@@ -11,7 +11,7 @@
   # 防火墙
   networking.firewall.enable = true;
 
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  environment.systemPackages = with pkgs.kdePackages; [
     discover
     plasma-firewall
     konsole
