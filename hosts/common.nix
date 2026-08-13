@@ -59,9 +59,15 @@ in
 
   nix.settings = {
     trusted-users = [ "root" ];
-    extra-substituters = [
+    # 国内二进制缓存源（Nix 会按顺序尝试，命中即停止）
+    substituters = [
+      "https://mirrors.ustc.edu.cn/nix-channels/store"
       "https://mirror.tuna.tsinghua.edu.cn/nix-channels/store"
       "https://mirror.sjtu.edu.cn/nix-channels/store"
+    ];  # 之前写源的时候不知道为什么，到最后老是构建官方nixos源导致速度变慢
+    # 官方源作为兜底
+    extra-substituters = [
+      "https://cache.nixos.org"
       "https://attic.xuyh0120.win/lantian"
     ];
     extra-trusted-public-keys = [

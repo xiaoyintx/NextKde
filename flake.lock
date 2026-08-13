@@ -13,11 +13,11 @@
         "rev": "32de400b6ac9f43042bca706f4a64f6ad08117e8",
         "revCount": 7084,
         "type": "git",
-        "url": "ssh://git@gitee.com/mirrors/home-manager-nix.git"
+        "url": "https://gitee.com/mirrors/home-manager-nix.git"
       },
       "original": {
         "type": "git",
-        "url": "ssh://git@gitee.com/mirrors/home-manager-nix.git"
+        "url": "https://gitee.com/mirrors/home-manager-nix.git"
       }
     },
     "nixos-hardware": {
@@ -44,7 +44,7 @@
         "narHash": "sha256-8bW3q88CEg2u4hSP66Vf4lpbLonHz7hqDNBMcCY7E9U=",
         "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre924538.3497aa5c9457/nixexprs.tar.xz"
+        "url": "httpb://releases.nixos.org/nixos/unstable/nixos-26.05pre924538.3497aa5c9457/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",

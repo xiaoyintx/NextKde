@@ -1,5 +1,5 @@
 {
-  description = "winter_l's portable NixOS configuration";
+  description = "xiaoyintx's portable NixOS configuration";
 
   # 输入源：Nixpkgs 仓库和 NixOS 的默认模板
   inputs = {
@@ -29,7 +29,7 @@
 
     home-manager = {
       # Gitee 镜像源：Home Manager（需要 ssh key）
-      url = "git+ssh://git@gitee.com/mirrors/home-manager-nix.git";
+      url = "git+https://gitee.com/mirrors/home-manager-nix.git";
 
       # Github 镜像源：Home Manager
       #url = "git+https://v6.gh-proxy.org/https://github.com/nix-community/home-manager.git";
@@ -38,7 +38,6 @@
       # url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
 
   };
 
