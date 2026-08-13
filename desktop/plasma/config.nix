@@ -20,18 +20,10 @@
   environment.systemPackages =
     with pkgs;
     [
-      # 普通软件包
-      ghostty
       # 图标
       colloid-icon-theme
       # 控制面板
       mission-center
-      # gtk3 主题
-      adw-gtk3
-      # 动态壁纸
-      localpkg.waywallen-kde
-      # 圆角
-      kde-rounded-corners
     ]
     ++ (with pkgs.kdePackages; [
       plasma-browser-integration

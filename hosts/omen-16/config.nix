@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -23,7 +28,7 @@
     ../../software/zed-editor.nix
     ../../software/browser/chrome.nix
     ../../software/qq.nix
-    ../../software/wechat.nix
+    # ../../software/wechat.nix
     ../../software/feishu.nix
     ../../software/steam.nix
     ../../software/lutris.nix
@@ -63,7 +68,6 @@
       enableOffloadCmd = true; # 提供 nvidia-offload 命令
     };
   };
-
 
   # ============================================================
   # 系统

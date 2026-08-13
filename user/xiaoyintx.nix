@@ -26,8 +26,6 @@
       programs = {
         kitty = {
           enable = true;
-          configFile.text = "";
-          envFile.text = "";
         };
       };
 
@@ -86,28 +84,6 @@
         ];
         startupNotify = true;
         type = "Application";
-      };
-      xdg.configFile."kitty/kitty.conf" = {
-        text = ''
-          # Kitty 终端配置文件
-          # 字体设置 - 与 VS Code 保持一致
-          font_family      Monaspace Argon Var
-          bold_font         auto
-          italic_font       auto
-          bold_italic_font  auto
-          font_size        12.0
-
-          # 其他常用设置
-          cursor_shape     block
-          cursor_blink_interval 0
-          background_opacity 1.0
-          confirm_os_window_close 0
-
-          # 快捷键
-          map ctrl+c copy_or_interrupt
-          map ctrl+v paste_from_clipboard
-        '';
-        force = true;
       };
 
       # 输入法设置
