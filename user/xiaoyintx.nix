@@ -93,8 +93,7 @@
         text = ''
           patch:
             schema_list:
-              - schema: double_pinyin_flypy
-            __include: rime_ice_suggestion:/
+              __include: wanxiang_suggested_default:/
         '';
         force = true;
       };
