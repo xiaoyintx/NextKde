@@ -17,17 +17,14 @@
     plasma-firewall
   ];
 
-  environment.systemPackages =
-    with pkgs;
-    [
+  environment.systemPackages = with pkgs; [
       # 图标
       colloid-icon-theme
       # 控制面板
       mission-center
       # Terminal
-      konsole
-    ]
-    ++ (with pkgs.kdePackages; [
+
+    ]++ (with pkgs.kdePackages; [
       plasma-browser-integration
       qtwebsockets
       qtstyleplugin-kvantum

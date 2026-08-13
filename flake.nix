@@ -5,7 +5,7 @@
   inputs = {
     nixpkgs = {
       # 主镜像源：南京大学（速度快，推荐）
-      url = "git+https://mirrors.ustc.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
+      url = "git+https://mirrors.nju.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
 
       # 备选镜像源：清华大学
       # url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-unstable&shallow=1";
