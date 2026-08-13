@@ -14,13 +14,12 @@
   environment.plasma6.excludePackages = with pkgs.kdePackages; [
     discover
     plasma-firewall
+    konsole
   ];
 
   environment.systemPackages =
     with pkgs;
     [
-      # Terminal
-      konsole
 
       # 图标
       colloid-icon-theme
