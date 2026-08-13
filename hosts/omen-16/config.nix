@@ -28,7 +28,6 @@
     ../../software/zed-editor.nix
     ../../software/browser/chrome.nix
     ../../software/qq.nix
-    ../../software/network.nix
     ../../software/feishu.nix
     ../../software/steam.nix
     ../../software/lutris.nix
