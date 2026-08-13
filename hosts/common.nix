@@ -87,7 +87,6 @@ in
     fastfetch
     unzip
     neovim
-    helix
     git
     pciutils
     nixfmt-rs

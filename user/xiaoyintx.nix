@@ -93,7 +93,7 @@
         text = ''
           patch:
             schema_list:
-              - schema: luna_pinyin
+              - schema: rime_ice
             __include: rime_ice_suggestion:/
         '';
         force = true;
