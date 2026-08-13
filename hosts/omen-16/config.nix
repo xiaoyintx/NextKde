@@ -28,6 +28,7 @@
     ../../software/zed-editor.nix
     ../../software/browser/chrome.nix
     ../../software/qq.nix
+    ../../software/wechat.nix
     ../../software/feishu.nix
     ../../software/steam.nix
     ../../software/lutris.nix
@@ -36,6 +37,7 @@
     ../../software/moonlight.nix
     # Develop
     ../../software/develop/clang.nix
+    ../../software/develop/gcc.nix
     ../../software/develop/zig.nix
     ../../software/develop/rust.nix
   ];
