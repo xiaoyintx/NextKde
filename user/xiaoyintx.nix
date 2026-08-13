@@ -93,7 +93,7 @@
         text = ''
           patch:
             schema_list:
-              - schema: rime_ice
+              - schema: double_pinyin_flypy
             __include: rime_ice_suggestion:/
         '';
         force = true;
