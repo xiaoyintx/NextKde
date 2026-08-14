@@ -11,7 +11,6 @@
   # 防火墙
   networking.firewall.enable = true;
 
-
   environment.systemPackages =
     with pkgs;
     [
@@ -26,9 +25,14 @@
     ++ (with pkgs.kdePackages; [
       plasma-browser-integration
       qtwebsockets
-      qtstyleplugin-kvantum
+
+      # 应用商店
       discover
+
+      # 防火墙
       plasma-firewall
+
+      # terminal
       konsole
     ]);
 

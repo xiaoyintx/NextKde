@@ -7,7 +7,7 @@
 
 {
   imports = [
-    # Boot Loader（GRUB，支持多内核启动项选择）
+    # Boot Loader
     ../../boot/grub.nix
     # User
     ../../user/xiaoyintx.nix
@@ -28,10 +28,11 @@
     ../../software/zed-editor.nix
     ../../software/browser/chrome.nix
     ../../software/qq.nix
-    # ../../software/wechat.nix
+    ../../software/wechat.nix
     ../../software/feishu.nix
     ../../software/steam.nix
     ../../software/lutris.nix
+    ../../software/network.nix
     ../../software/obs-studio.nix
     ../../software/opencode.nix
     ../../software/moonlight.nix

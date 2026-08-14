@@ -5,6 +5,7 @@
 
 {
   fcitx5-window-state = callPackage ./fcitx5-window-state { };
+  wechat = callPackage ./wechat { };
   waywallen-ui = callPackage ./waywallen-ui { };
   waywallen-kde = callPackage ./waywallen-kde { };
   waywallen-gnome = callPackage ./waywallen-gnome { };

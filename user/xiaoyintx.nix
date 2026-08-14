@@ -20,12 +20,16 @@
   };
 
   home-manager.users.xiaoyintx =
-    { config, ... }:
+    { config, pkgs, ... }:
     {
       # shell 设置
       programs = {
         kitty = {
           enable = true;
+          font = {
+            name = "Maple Mono NF CN";
+            size = 12;
+          };
         };
       };
 
@@ -73,7 +77,7 @@
 
       # 覆盖微信 desktop 文件，使其通过 FONTCONFIG_FILE 使用上面的字体配置启动
       xdg.desktopEntries.wechat = {
-        name = "wechat";
+        name = "微信";
         genericName = "Wechat Desktop";
         comment = "微信桌面版";
         exec = "env FONTCONFIG_FILE=${config.home.homeDirectory}/.config/wechat-fonts/local.conf QT_IM_MODULE=fcitx wechat %U";
@@ -96,6 +100,13 @@
               __include: wanxiang_suggested_default:/
         '';
         force = true;
+      };
+      xdg.dataFile = {
+        # v2rayn
+        "v2rayN/bin/sing_box/sing-box".source = "${pkgs.sing-box}/bin/sing-box";
+        "v2rayN/bin/xray/xray".source = "${pkgs.xray}/bin/xray";
+        "v2rayN/bin/geoip.dat".source = "${pkgs.v2ray-geoip}/share/v2ray/geoip.dat";
+        "v2rayN/bin/geosite.dat".source = "${pkgs.v2ray-domain-list-community}/share/v2ray/geosite.dat";
       };
     };
 }
