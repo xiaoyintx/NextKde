@@ -38,6 +38,7 @@
     ../../software/moonlight.nix
     ../../software/zed-editor.nix
     ../../software/vscode.nix
+    ../../software/vscode-settings.nix
     # Develop
     # ../../software/develop/clang.nix
     ../../software/develop/gcc.nix
