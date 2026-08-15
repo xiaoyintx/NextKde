@@ -25,7 +25,6 @@
     # Shell
     ../../shell/zsh.nix
     # Desktop Software
-    ../../software/zed-editor.nix
     ../../software/browser/chrome.nix
     ../../software/qq.nix
     ../../software/wechat.nix
@@ -36,6 +35,8 @@
     ../../software/obs-studio.nix
     ../../software/opencode.nix
     ../../software/moonlight.nix
+    ../../software/zed-editor.nix
+    ../../software/vscode.nix
     # Develop
     # ../../software/develop/clang.nix
     ../../software/develop/gcc.nix

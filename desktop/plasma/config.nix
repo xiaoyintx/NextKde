@@ -25,15 +25,8 @@
     ++ (with pkgs.kdePackages; [
       plasma-browser-integration
       qtwebsockets
-
-      # 应用商店
-      discover
-
       # 防火墙
       plasma-firewall
-
-      # terminal
-      konsole
     ]);
 
   # 启用声音
