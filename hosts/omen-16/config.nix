@@ -26,6 +26,7 @@
     ../../shell/zsh.nix
     # Desktop Software
     ../../software/browser/chrome.nix
+    ../../software/clion.nix
     ../../software/qq.nix
     ../../software/wechat.nix
     ../../software/feishu.nix
