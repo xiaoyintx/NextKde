@@ -13,158 +13,108 @@
           errorForeground = "#ffb4ab";
           "editor.background" = "#0e1415";
           "editor.foreground" = "#dde4e3";
-          editorLineNumber = {
-            foreground = "#899393";
-            activeForeground = "#80d4d7";
-          };
+          "editorLineNumber.foreground" = "#899393";
+          "editorLineNumber.activeForeground" = "#80d4d7";
           "editorCursor.foreground" = "#80d4d7";
           "editor.selectionBackground" = "#80d4d740";
           "editor.inactiveSelectionBackground" = "#80d4d715";
           "editor.lineHighlightBackground" = "#1a2121";
           "editor.wordHighlightBackground" = "#b0cccc33";
           "editor.wordHighlightStrongBackground" = "#80d4d733";
-          editorBracketMatch = {
-            background = "#252b2b";
-            border = "#899393";
-          };
-          editorSuggestWidget = {
-            background = "#252b2b";
-            border = "#899393";
-            foreground = "#dde4e3";
-            selectedBackground = "#80d4d7";
-            selectedForeground = "#003738";
-            highlightForeground = "#80d4d7";
-            focusHighlightForeground = "#003738";
-          };
-          titleBar = {
-            activeBackground = "#161d1d";
-            activeForeground = "#dde4e3";
-            border = "#3f4949";
-            inactiveBackground = "#0e1415";
-          };
-          activityBar = {
-            background = "#1a2121";
-            foreground = "#80d4d7";
-            activeBorder = "#80d4d7";
-            inactiveForeground = "#899393";
-          };
-          activityBarBadge = {
-            background = "#80d4d7";
-            foreground = "#003738";
-          };
-          sideBar = {
-            background = "#161d1d";
-            foreground = "#bec8c8";
-            border = "#3f4949";
-          };
-          sideBarSectionHeader = {
-            background = "#1a2121";
-          };
-          sideBarTitle = {
-            foreground = "#80d4d7";
-          };
-          statusBar = {
-            background = "#1a2121";
-            foreground = "#dde4e3";
-            border = "#3f4949";
-            debuggingBackground = "#ffb4ab";
-            noFolderBackground = "#1a2121";
-          };
-          editorGroupHeader = {
-            tabsBackground = "#0e1415";
-          };
-          tab = {
-            activeBackground = "#0e1415";
-            inactiveBackground = "#161d1d";
-            activeForeground = "#80d4d7";
-            activeBorderTop = "#80d4d7";
-            border = "#3f4949";
-          };
-          input = {
-            background = "#1a2121";
-            foreground = "#dde4e3";
-            border = "#899393";
-            placeholderForeground = "#899393";
-          };
+          "editorBracketMatch.background" = "#252b2b";
+          "editorBracketMatch.border" = "#899393";
+          "editorSuggestWidget.background" = "#252b2b";
+          "editorSuggestWidget.border" = "#899393";
+          "editorSuggestWidget.foreground" = "#dde4e3";
+          "editorSuggestWidget.selectedBackground" = "#80d4d7";
+          "editorSuggestWidget.selectedForeground" = "#003738";
+          "editorSuggestWidget.highlightForeground" = "#80d4d7";
+          "editorSuggestWidget.focusHighlightForeground" = "#003738";
+          "titleBar.activeBackground" = "#161d1d";
+          "titleBar.activeForeground" = "#dde4e3";
+          "titleBar.border" = "#3f4949";
+          "titleBar.inactiveBackground" = "#0e1415";
+          "activityBar.background" = "#1a2121";
+          "activityBar.foreground" = "#80d4d7";
+          "activityBar.activeBorder" = "#80d4d7";
+          "activityBar.inactiveForeground" = "#899393";
+          "activityBarBadge.background" = "#80d4d7";
+          "activityBarBadge.foreground" = "#003738";
+          "sideBar.background" = "#161d1d";
+          "sideBar.foreground" = "#bec8c8";
+          "sideBar.border" = "#3f4949";
+          "sideBarSectionHeader.background" = "#1a2121";
+          "sideBarTitle.foreground" = "#80d4d7";
+          "statusBar.background" = "#1a2121";
+          "statusBar.foreground" = "#dde4e3";
+          "statusBar.border" = "#3f4949";
+          "statusBar.debuggingBackground" = "#ffb4ab";
+          "statusBar.noFolderBackground" = "#1a2121";
+          "editorGroupHeader.tabsBackground" = "#0e1415";
+          "tab.activeBackground" = "#0e1415";
+          "tab.inactiveBackground" = "#161d1d";
+          "tab.activeForeground" = "#80d4d7";
+          "tab.activeBorderTop" = "#80d4d7";
+          "tab.border" = "#3f4949";
+          "input.background" = "#1a2121";
+          "input.foreground" = "#dde4e3";
+          "input.border" = "#899393";
+          "input.placeholderForeground" = "#899393";
           "input.option.activeBorder" = "#80d4d7";
-          inputOption = {
-            activeBackground = "#80d4d733";
-            activeForeground = "#80d4d7";
-          };
-          inputValidation = {
-            errorBackground = "#ffb4ab33";
-            errorBorder = "#ffb4ab";
-            infoBackground = "#b0cccc33";
-            infoBorder = "#b0cccc";
-            warningBackground = "#b4c7e933";
-            warningBorder = "#b4c7e9";
-          };
-          editorWidget = {
-            background = "#252b2b";
-            border = "#899393";
-            resizeBorder = "#80d4d7";
-          };
-          button = {
-            background = "#80d4d7";
-            foreground = "#003738";
-            hoverBackground = "#80d4d7CC";
-            secondaryBackground = "#252b2b";
-          };
-          list = {
-            activeSelectionBackground = "#80d4d733";
-            activeSelectionForeground = "#80d4d7";
-            hoverBackground = "#dde4e310";
-            highlightForeground = "#80d4d7";
-            focusOutline = "#80d4d7";
-          };
-          menu = {
-            background = "#1a2121";
-            foreground = "#dde4e3";
-            selectionBackground = "#80d4d7";
-            selectionForeground = "#003738";
-            border = "#3f4949";
-          };
-          quickInput = {
-            background = "#252b2b";
-            foreground = "#dde4e3";
-          };
-          pickerGroup = {
-            border = "#3f4949";
-            foreground = "#80d4d7";
-          };
-          quickInputList = {
-            focusBackground = "#80d4d7";
-            focusForeground = "#003738";
-          };
-          panel = {
-            background = "#161d1d";
-            border = "#3f4949";
-          };
-          panelTitle = {
-            activeBorder = "#80d4d7";
-            activeForeground = "#80d4d7";
-            inactiveForeground = "#bec8c8";
-          };
-          terminal = {
-            background = "#0e1415";
-            foreground = "#dde4e3";
-            ansiBlack = "#252b2b";
-            ansiRed = "#ffb4ab";
-            ansiGreen = "#80d4d7";
-            ansiYellow = "#354863";
-            ansiBlue = "#80d4d7";
-            ansiMagenta = "#b4c7e9";
-            ansiCyan = "#b0cccc";
-            ansiWhite = "#dde4e3";
-            ansiBrightBlack = "#899393";
-            ansiBrightRed = "#ffb4ab";
-            ansiBrightGreen = "#80d4d7";
-            ansiBrightYellow = "#b4c7e9";
-            ansiBrightBlue = "#80d4d7";
-            ansiBrightMagenta = "#b4c7e9";
-            ansiBrightCyan = "#b0cccc";
-            ansiBrightWhite = "#dde4e3";
-          };
+          "inputOption.activeBackground" = "#80d4d733";
+          "inputOption.activeForeground" = "#80d4d7";
+          "inputValidation.errorBackground" = "#ffb4ab33";
+          "inputValidation.errorBorder" = "#ffb4ab";
+          "inputValidation.infoBackground" = "#b0cccc33";
+          "inputValidation.infoBorder" = "#b0cccc";
+          "inputValidation.warningBackground" = "#b4c7e933";
+          "inputValidation.warningBorder" = "#b4c7e9";
+          "editorWidget.background" = "#252b2b";
+          "editorWidget.border" = "#899393";
+          "editorWidget.resizeBorder" = "#80d4d7";
+          "button.background" = "#80d4d7";
+          "button.foreground" = "#003738";
+          "button.hoverBackground" = "#80d4d7CC";
+          "button.secondaryBackground" = "#252b2b";
+          "list.activeSelectionBackground" = "#80d4d733";
+          "list.activeSelectionForeground" = "#80d4d7";
+          "list.hoverBackground" = "#dde4e310";
+          "list.highlightForeground" = "#80d4d7";
+          "list.focusOutline" = "#80d4d7";
+          "menu.background" = "#1a2121";
+          "menu.foreground" = "#dde4e3";
+          "menu.selectionBackground" = "#80d4d7";
+          "menu.selectionForeground" = "#003738";
+          "menu.border" = "#3f4949";
+          "quickInput.background" = "#252b2b";
+          "quickInput.foreground" = "#dde4e3";
+          "pickerGroup.border" = "#3f4949";
+          "pickerGroup.foreground" = "#80d4d7";
+          "quickInputList.focusBackground" = "#80d4d7";
+          "quickInputList.focusForeground" = "#003738";
+          "panel.background" = "#161d1d";
+          "panel.border" = "#3f4949";
+          "panelTitle.activeBorder" = "#80d4d7";
+          "panelTitle.activeForeground" = "#80d4d7";
+          "panelTitle.inactiveForeground" = "#bec8c8";
+          "terminal.background" = "#0e1415";
+          "terminal.foreground" = "#dde4e3";
+          "terminal.ansiBlack" = "#252b2b";
+          "terminal.ansiRed" = "#ffb4ab";
+          "terminal.ansiGreen" = "#80d4d7";
+          "terminal.ansiYellow" = "#354863";
+          "terminal.ansiBlue" = "#80d4d7";
+          "terminal.ansiMagenta" = "#b4c7e9";
+          "terminal.ansiCyan" = "#b0cccc";
+          "terminal.ansiWhite" = "#dde4e3";
+          "terminal.ansiBrightBlack" = "#899393";
+          "terminal.ansiBrightRed" = "#ffb4ab";
+          "terminal.ansiBrightGreen" = "#80d4d7";
+          "terminal.ansiBrightYellow" = "#b4c7e9";
+          "terminal.ansiBrightBlue" = "#80d4d7";
+          "terminal.ansiBrightMagenta" = "#b4c7e9";
+          "terminal.ansiBrightCyan" = "#b0cccc";
+          "terminal.ansiBrightWhite" = "#dde4e3";
         };
         "editor.tokenColorCustomizations" = {
           textMateRules = [
