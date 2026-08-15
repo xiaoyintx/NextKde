@@ -5,11 +5,11 @@
     {
       programs.vscode = {
         enable = true;
+        extensions = with pkgs.vscode-extensions; [
+          ms-python.python
+          ms-vscode.cpptools
+          rust-lang.rust-analyzer
+        ];
       };
-      extensions = with pkgs.vscode-extensions; [
-        ms-python.python
-        ms-vscode.cpptools
-        rust-lang.rust-analyzer
-      ];
     };
 }
