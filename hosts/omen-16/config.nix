@@ -31,7 +31,7 @@
     ../../software/feishu.nix
     ../../software/steam.nix
     ../../software/lutris.nix
-    ../../software/network.nix
+    ../../software/clash.nix
     ../../software/clash-proxy.nix
     ../../software/obs-studio.nix
     ../../software/opencode.nix

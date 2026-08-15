@@ -1,1 +1,10 @@
-# 这里代理使用 https://github.com/nelvko/clash-for-linux-install.git 内的项目
+{
+  # 使用 Home Manager 安装 clash verge
+  home-manager.users.xiaoyintx =
+    { pkgs, ... }:
+    {
+      home.packages = with pkgs; [
+        clash-verge-rev
+      ];
+    };
+}
