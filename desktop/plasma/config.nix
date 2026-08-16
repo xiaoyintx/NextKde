@@ -44,7 +44,7 @@
   # 启用蓝牙
   hardware.bluetooth = {
     enable = true;
-    setting.General.Experimental = true;
+    settings.General.Experimental = true;
   };
   services.printing.enable = true;
   services.avahi.enable = true; # 用于发现网络打印机
