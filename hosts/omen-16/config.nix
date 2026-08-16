@@ -75,6 +75,10 @@
       enableOffloadCmd = true; # 提供 nvidia-offload 命令
     };
   };
+  hardware.bluetooth = {
+    enable = true;
+    settings.General.Experimental = true;
+  };
 
   # ============================================================
   # 系统
