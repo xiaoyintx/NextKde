@@ -10,16 +10,16 @@
 
   # 防火墙
   networking.firewall.enable = true;
-
-  environment.systemPackages =
-    with pkgs;
-    [
-
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+      konsole
+      discover
+      plasma-firewall
+    ];
+  environment.systemPackages = with pkgs;[
       # 图标
       colloid-icon-theme
       # 控制面板
       mission-center
-
     ]
     ++ (with pkgs.kdePackages; [
       plasma-browser-integration
