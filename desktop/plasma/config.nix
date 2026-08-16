@@ -19,7 +19,6 @@
       colloid-icon-theme
       # 控制面板
       mission-center
-      # Terminal
 
     ]
     ++ (with pkgs.kdePackages; [
