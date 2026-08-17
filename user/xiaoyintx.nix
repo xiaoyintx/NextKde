@@ -30,6 +30,30 @@
             name = "Maple Mono NF CN";
             size = 12;
           };
+          # xiaoyintx-dark 同款配色（与 zed 终端一致）
+          settings = {
+            background = "#0e1415";
+            foreground = "#dde4e3";
+            cursor = "#80d4d7";
+            cursor_text_color = "#0e1415";
+            selection_background = "#1a2121";
+            color0 = "#252b2b";
+            color8 = "#899393";
+            color1 = "#ffb4ab";
+            color9 = "#ffb4ab";
+            color2 = "#80d4d7";
+            color10 = "#80d4d7";
+            color3 = "#354863";
+            color11 = "#b4c7e9";
+            color4 = "#80d4d7";
+            color12 = "#80d4d7";
+            color5 = "#b4c7e9";
+            color13 = "#b4c7e9";
+            color6 = "#b0cccc";
+            color14 = "#b0cccc";
+            color7 = "#dde4e3";
+            color15 = "#dde4e3";
+          };
         };
       };
 
