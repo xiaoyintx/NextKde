@@ -58,7 +58,9 @@
           // 编辑器字体
           "buffer_font_family": "Maple Mono NF CN",
           "buffer_font_size": 16,
-          "ui_font_family": "Maple Mono NF CN",
+          // UI 字体与系统一致（更纱黑体，fontconfig 中 sans-serif → Sarasa UI SC）
+          "ui_font_family": "Sarasa UI SC",
+          "ui_font_size": 14,
           // 项目面板放到左侧
           "project_panel": { "dock": "left" },
           // 显式启用 Zed 官方 vim mode（经典默认风格）
