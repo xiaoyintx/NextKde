@@ -6,7 +6,7 @@ stdenv.mkDerivation (finalAttrs: {
 
   src = fetchzip {
     url = "https://v6.gh-proxy.org/https://github.com/waywallen/waywallen-display/releases/download/v${finalAttrs.version}/waywallen-gnome-${finalAttrs.version}-x86_64.zip";
-    hash = "";  # 首次构建报错后填入
+    hash = "sha256-KLcyFVYDwDnTsMMKsUabMfqyrU0lWZvzo80mi88tomI=";
     stripRoot = false;
   };
 

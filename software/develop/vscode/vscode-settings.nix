@@ -3,7 +3,7 @@
   home-manager.users.xiaoyintx =
     { ... }:
     {
-      programs.vscode.userSettings = {
+      programs.vscode.profiles.default.userSettings = {
         "workbench.colorCustomizations" = {
           foreground = "#dde4e3";
           focusBorder = "#80d4d7";
