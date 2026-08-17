@@ -359,6 +359,12 @@
             "bindings": {
               "ctrl-t": ["task::Spawn"]
             }
+          },
+          {
+            "context": "Editor && vim_mode == insert && !menu",
+            "bindings": {
+              "esc": ["vim::SwitchMode", "normal", "workspace::Save", "editor::Format"]
+            }
           }
         ]
       ''; };
