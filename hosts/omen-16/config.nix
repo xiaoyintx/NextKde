@@ -37,11 +37,14 @@
         ../../software/normal/obs-studio.nix
         ../../software/normal/opencode.nix
         ../../software/normal/moonlight.nix
+        # genhao10
+        ../../software/genhao10/linux-activate.nix
         # Develop
         ../../software/develop/clang.nix # clangd：C/C++ 补全
         ../../software/develop/clion.nix
         ../../software/develop/gcc.nix
         ../../software/develop/zig.nix
+        ../../software/develop/python.nix
         ../../software/develop/rust.nix
         ../../software/develop/vscode/vscode.nix
         ../../software/develop/vscode/vscode-settings.nix
