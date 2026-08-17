@@ -30,6 +30,7 @@
         # Desktop Software
         ../../software/browser/chrome.nix
         ../../software/normal/qq.nix
+        ../../software/normal/scrcpy.nix
         ../../software/normal/wechat.nix
         ../../software/normal/feishu.nix
         ../../software/normal/steam.nix

@@ -15,7 +15,7 @@
                 };
                 Service = {
                     Type = "simple";
-                    ExecStart = "${pkgs.activate-linux}/bin/activate-linux";
+                    ExecStart = "${pkgs.activate-linux}/bin/activate-linux -C /etc/default/activate-linux";
                     Restart = "on-failure";
                 };
                 Install.WantedBy = [ "graphical-session.target" ];
@@ -24,7 +24,7 @@
 
     # activate-linux 显示的水印文字配置
     environment.etc."default/activate-linux".text = ''
-        LINE1=激活Nix OS
-        LINE2=转到"设置"以激活 NixOS
+        text-title = "激活Nix OS";
+        text-message = "转到\"设置\"以激活 NixOS";
     '';
 }
