@@ -14,7 +14,6 @@
         enable = true;
         qemu = {
             package = pkgs.qemu_kvm;
-            ovmf.enable = true;
             swtpm.enable = true;
         };
     };
@@ -34,6 +33,13 @@
         "intel_iommu=on"
         "iommu=pt"
     ];
+    networking.firewall = {
+        trustedInterfaces = [ "virbr0" ];
+        checkReversePath = "loose";
+    };
+
+    # dconf 支持（virt-manager 通过 dconf 记忆连接）
+    programs.dconf.enable = true;
 
     # 用户加入虚拟化组（libvirtd + kvm）
     users.users.xiaoyintx.extraGroups = [
@@ -47,9 +53,14 @@
         virt-viewer
         qemu_kvm
         libguestfs
-        virt-install
         fastfetch
     ];
+
+    # 让桌面会话以中文运行，virt-manager 等 GTK 应用显示中文界面
+    environment.sessionVariables = {
+        LANG = "zh_CN.UTF-8";
+        LC_ALL = "zh_CN.UTF-8";
+    };
 
     home-manager.users.xiaoyintx =
         { pkgs, ... }:
@@ -57,5 +68,14 @@
             home.packages = with pkgs; [
                 libvirt
             ];
+
+            # 声明式指定 virt-manager 默认连接，避免启动时弹出
+            # "无法检测到默认虚拟机管理程序" 提示
+            dconf.settings = {
+                "org/virt-manager/virt-manager/connections" = {
+                    autoconnect = [ "qemu:///system" ];
+                    uris = [ "qemu:///system" ];
+                };
+            };
         };
 }

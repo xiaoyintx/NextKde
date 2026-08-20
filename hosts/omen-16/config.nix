@@ -24,9 +24,11 @@
         ../../input-method/fcitx5.nix
         # Shell
         ../../shell/zsh.nix
+        # Virtualization (KVM)
+        ./kvm.nix
         # Network Agent
-        ../../software/network/clash/clash.nix
-        ../../software/network/clash/clash-proxy.nix
+        # ../../software/network/clash/clash.nix
+        # ../../software/network/clash/clash-proxy.nix
         # Desktop Software
         ../../software/browser/chrome.nix
         ../../software/normal/qq.nix
@@ -34,6 +36,7 @@
         ../../software/normal/wechat.nix
         ../../software/normal/feishu.nix
         ../../software/normal/steam.nix
+        ../../software/normal/libreoffice.nix
         ../../software/normal/lutris.nix
         ../../software/normal/obs-studio.nix
         ../../software/normal/opencode.nix
@@ -61,7 +64,6 @@
 
     # 默认内核：NixOS 官方 unstable（多内核启动项见下方 specialisation）
     boot.kernelPackages = pkgs.linuxPackages_latest;
-
     # Intel 平台电源管理
     powerManagement.cpuFreqGovernor = "powersave";
 
