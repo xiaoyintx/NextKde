@@ -1,50 +1,47 @@
 { pkgs, ... }:
 
 {
-    services = {
-        displayManager = {
-            plasma-login-manager.enable = true;
-        };
-        desktopManager.plasma6.enable = true;
+  services = {
+    displayManager = {
+      plasma-login-manager.enable = true;
     };
+    desktopManager.plasma6.enable = true;
+  };
 
-    # 防火墙
-    networking.firewall.enable = true;
-    environment.plasma6.excludePackages = with pkgs.kdePackages; [
-        konsole
-        discover
-        plasma-firewall
-        kate
+  # 防火墙
+  networking.firewall.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+      konsole
+      discover
+      plasma-firewall
     ];
-    environment.systemPackages =
-        with pkgs;
-        [
-            # 图标
-            colloid-icon-theme
-            # 控制面板
-            mission-center
-        ]
-        ++ (with pkgs.kdePackages; [
-            plasma-browser-integration
-            qtwebsockets
-            # 防火墙
-            plasma-firewall
-        ]);
+  environment.systemPackages = with pkgs;[
+      # 图标
+      colloid-icon-theme
+      # 控制面板
+      mission-center
+    ]
+    ++ (with pkgs.kdePackages; [
+      plasma-browser-integration
+      qtwebsockets
+      # 防火墙
+      plasma-firewall
+    ]);
 
-    # 启用声音
-    services.pulseaudio.enable = false;
-    security.rtkit.enable = true;
-    services.pipewire = {
-        enable = true;
-        alsa = {
-            enable = true;
-            support32Bit = true;
-        };
-        pulse = {
-            enable = true;
-        };
+  # 启用声音
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
     };
-    # 启用蓝牙
-    services.printing.enable = true;
-    services.avahi.enable = true; # 用于发现网络打印机
+    pulse = {
+      enable = true;
+    };
+  };
+  # 启用蓝牙
+  services.printing.enable = true;
+  services.avahi.enable = true; # 用于发现网络打印机
 }
