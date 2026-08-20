@@ -1,5 +1,5 @@
 {
-    # 使用 Home Manager 安装 clash gui
+    # 使用 Home Manager 安装 rust
     home-manager.users.xiaoyintx =
         { pkgs, ... }:
         {
