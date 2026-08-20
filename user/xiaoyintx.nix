@@ -113,19 +113,6 @@
                 startupNotify = true;
                 type = "Application";
             };
-            xdg.desktopEntries.qq = {
-                name = "QQ";
-                genericName = "QQ桌面版";
-                comment = "QQ桌面版";
-                exec = "env  QT_IM_MODULE=fcitx qq %U";
-                icon = "qq";
-                terminal = false;
-                categories = [
-                    "Utility"
-                ];
-                startupNotify = true;
-                type = "Application";
-            };
 
             # 输入法设置
 

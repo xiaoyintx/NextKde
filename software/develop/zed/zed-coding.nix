@@ -89,8 +89,6 @@
                       "dap": {
                         "CodeLLDB": {}
                       },
-                      "autosave": "after_delay",
-                      "autosave_delay": 1000,
                       "format_on_save": "on",
                       "inlay_hints": {
                         "enabled": true,
@@ -120,7 +118,7 @@
                           "formatter": {
                             "external": {
                               "command": "clang-format",
-                              "arguments": [
+                              "ARGUMENTS": [
                                 "--style=file:${config.home.homeDirectory}/.clang-format",
                                 "--assume-filename={buffer_path}"
                               ]
@@ -144,80 +142,24 @@
                 '';
             };
 
-            # C++ 格式化规则（由 VS Code 的 C_Cpp.vcFormat 迁移而来）
-            # 源：vscode-settings.nix 中 C_Cpp.formatting = "vcFormat" 及其 vcFormat.* 设置
+            # C++ 格式化规则（由 VS Code 的 C_Cpp.vcFormat 迁移而来：所有大括号同行）
             home.file.".clang-format" = {
                 force = true;
                 text = ''
                     ---
                     BasedOnStyle: LLVM
-                    Language: Cpp
-
-                    # == 大括号（vcFormat newLine.beforeOpenBrace.{function,block,lambda,namespace,type} = sameLine）==
-                    # 函数/块/lambda/命名空间/类型等开括号均与前面的代码同行（Custom + 未列出的 BraceWrapping 默认不折行）
-                    BreakBeforeBraces: Custom
-                    BraceWrapping:
-                      # else / catch 关键字另起一行（不跟在 } 后面）
-                      BeforeElse: true
-                      BeforeCatch: true
-
-                    # == 缩进 ==
-                    # vcFormat 默认 4 空格；indent.caseContents = false（case 内容不再额外缩进）
+                    # 对应 vcFormat newLine.beforeOpenBrace.* = sameLine（函数/块/lambda/命名空间/类型）
+                    BreakBeforeBraces: Attach
+                    # 空格/缩进：4 空格
                     IndentWidth: 4
+                    ColumnLimit: 0
+                    SortIncludes: false
                     TabWidth: 4
                     UseTab: Never
-                    IndentCaseLabels: false
-                    IndentCaseBlocks: false
-                    # vcFormat 默认不缩进 goto 标签
-                    IndentGotoLabels: false
-                    # vcFormat indent.lambdaBracesWhenParameter = false（lambda 作实参时不缩进其花括号）
-                    # → 对应 AllowShortLambdasOnASingleLine: Inline，短 lambda 保持单行
-                    AllowShortLambdasOnASingleLine: Inline
-
-                    # == 换行/行宽 ==
-                    # vcFormat 无强制列宽，不做折行
-                    ColumnLimit: 0
                     AllowShortFunctionsOnASingleLine: Empty
                     AllowShortIfStatementsOnASingleLine: Never
-
-                    # == 空格 ==
-                    # vcFormat space.aroundAssignmentOperator / BinaryOperator / LogicalOperator = insert
-                    # （clang-format 21 中赋值与二元运算符周围默认补空格）
-                    # vcFormat space.insertAfterSemicolon = true（clang-format 在 for 循环分号后总会补空格）
-                    # vcFormat space.beforeInitializerListBraces = false（初始化列表 { 前不空格）
-                    SpaceBeforeCpp11BracedList: false
-                    # vcFormat space.beforeFunctionCallArguments = false（函数调用实参前不空格）
-                    SpaceBeforeParens: ControlStatements
-
-                    # == 指针/引用（vcFormat aroundPointerReferenceOperators 默认写法 int* p，靠左）==
                     PointerAlignment: Left
-                    ReferenceAlignment: Left
-                    DerivePointerAlignment: false
-
-                    # == 其它 ==
-                    # 保持头文件 include 顺序，不自动重排
-                    SortIncludes: false
-                    SortUsingDeclarations: false
-                    # 命名空间结束后生成注释 } // namespace x
-                    FixNamespaceComments: true
                     ---
-                '';
-            };
-
-            # C++ 编译并运行脚本（独立文件，避免 Zed 把命令拼接进 zsh 导致的解析问题）
-            home.file.".config/zed/cpp-run.sh" = {
-                force = true;
-                executable = true;
-                text = ''
-                    #!/usr/bin/env bash
-                    set -e
-                    file="$1"
-                    if [ -z "$file" ] || [ ! -f "$file" ]; then
-                        echo "错误：没有活动文件。请先将光标放到要编译的 .cpp 文件标签页上再运行此任务。"
-                        exit 1
-                    fi
-                    g++ -std=c++23 -g -O2 -Wall "$file" -o /tmp/zed_cpp_run
-                    /tmp/zed_cpp_run
                 '';
             };
 
@@ -251,14 +193,14 @@
                         "tags": ["rust"]
                       },
                       {
-                        "label": "C++: 编译并运行（终端输入）",
-                        "command": "/home/xiaoyintx/.config/zed/cpp-run.sh",
-                        "args": ["$ZED_FILE"],
+                        "label": "C++: 编译并运行当前文件",
+                        "command": "bash",
+                        "args": [
+                          "-c",
+                          "g++ -std=c++23 -g -O0 -Wall \"$ZED_FILE\" -o /tmp/zed_cpp_run && /tmp/zed_cpp_run"
+                        ],
                         "cwd": "$ZED_WORKTREE_ROOT",
                         "use_new_terminal": true,
-                        "allow_concurrent_runs": true,
-                        "reveal": "always",
-                        "hide": "never",
                         "tags": ["cpp"]
                       }
                     ]
@@ -278,7 +220,7 @@
                         "cwd": "$ZED_WORKTREE_ROOT",
                         "build": {
                           "command": "bash",
-                          "args": ["-c", "g++ -std=c++23 -g -O2 -Wall \"$ZED_FILE\" -o /tmp/zed_cpp_dbg"],
+                          "args": ["-c", "g++ -std=c++23 -g -O0 -Wall \"$ZED_FILE\" -o /tmp/zed_cpp_dbg"],
                           "cwd": "$ZED_WORKTREE_ROOT"
                         },
                         "stopOnEntry": false
@@ -412,12 +354,17 @@
                 '';
             };
 
-            # 快捷键：调用任务用 Zed 默认键（alt-shift-t 呼出任务列表，alt-t / ctrl-shift-r 重跑），
-            # 避免用自定义 ctrl-t 覆盖默认的项目符号面板（project_symbols::Toggle）造成冲突
+            # 快捷键：快捷运行 / 重跑
             xdg.configFile."zed/keymap.json" = {
                 force = true;
                 text = ''
                     [
+                      {
+                        "context": "Workspace",
+                        "bindings": {
+                          "ctrl-t": ["task::Spawn"]
+                        }
+                      },
                       {
                         "context": "Editor && vim_mode == insert && !menu",
                         "bindings": {
