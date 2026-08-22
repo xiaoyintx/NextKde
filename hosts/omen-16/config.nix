@@ -31,7 +31,7 @@
         # ../../software/network/clash/clash-proxy.nix
         # Desktop Software
         ../../software/browser/chrome.nix
-        ../../software/normal/cider.nix
+        ../../software/normal/piliplus.nix
         ../../software/normal/qq.nix
         ../../software/normal/scrcpy.nix
         ../../software/normal/wechat.nix
