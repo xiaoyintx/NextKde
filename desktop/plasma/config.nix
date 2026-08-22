@@ -13,6 +13,7 @@
     environment.plasma6.excludePackages = with pkgs.kdePackages; [
         konsole
         discover
+        kpmcore
         plasma-firewall
         kate
     ];
@@ -25,6 +26,8 @@
             mission-center
         ]
         ++ (with pkgs.kdePackages; [
+            partitionmanager
+            filelight
             plasma-browser-integration
             qtwebsockets
             # 防火墙
