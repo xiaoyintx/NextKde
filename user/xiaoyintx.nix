@@ -128,13 +128,11 @@
             };
 
             # 输入法设置
-
-            ## default.custom.yaml - 只切换方案
+            ## default.custom.yaml - 万象拼音方案
             xdg.dataFile."fcitx5/rime/default.custom.yaml" = {
                 text = ''
                     patch:
-                      schema_list:
-                        __include: wanxiang_suggested_default:/
+                      __include: wanxiang_suggested_default:/
                 '';
                 force = true;
             };
