@@ -27,7 +27,6 @@
                 initContent = lib.mkBefore ''
                     # 自定义 zsh 配置
                     export EDITOR=nvim
-
                     # 右侧提示符：显示时间与 git 状态
                     setopt PROMPT_SUBST
                     autoload -Uz vcs_info
@@ -46,6 +45,7 @@
                         "git"
                         "sudo"
                         "z"
+                        "hitokoto"
                         "history"
                     ];
                     theme = "agnoster";
