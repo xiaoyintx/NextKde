@@ -39,6 +39,11 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        proton-cachyos = {
+            url = "git+https://api.gitproxy.dev/github.com/Daaboulex/proton-cachyos-nix.git";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
     };
 
     outputs =
@@ -56,6 +61,7 @@
             ];
 
             # 为每个主机创建 NixOS 配置
+
             mkHost =
                 hostName:
                 nixpkgs.lib.nixosSystem {
