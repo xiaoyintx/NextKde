@@ -4,6 +4,7 @@ let
     # 1. 覆盖 fcitx5-rime，指定使用 rime-wanxiang 作为数据源
     rime = pkgs.fcitx5-rime.override {
         rimeDataPkgs = with pkgs; [
+            rime-data # 基础 Rime 配置（包含 default.yaml、标点、快捷键绑定等）
             rime-wanxiang # 万象拼音方案
         ];
     };
@@ -21,4 +22,5 @@ in
             ];
         };
     };
+
 }
