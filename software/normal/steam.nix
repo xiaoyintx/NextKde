@@ -2,6 +2,7 @@
     config,
     lib,
     pkgs,
+    inputs,
     ...
 }:
 
@@ -20,6 +21,8 @@
         enable = true;
         remotePlay.openFirewall = true;
         dedicatedServer.openFirewall = true;
-        extraCompatPackages = with pkgs; [ dwproton-bin ];
+        extraCompatPackages = with pkgs; [
+            dwproton-bin
+        ];
     };
 }
