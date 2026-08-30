@@ -92,7 +92,9 @@ in
 
     environment.systemPackages = with pkgs; [
         fastfetch
+        curl
         tlp
+        jq
         unzip
         neovim
         git
