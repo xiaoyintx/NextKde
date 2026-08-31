@@ -24,6 +24,7 @@
         ../../input-method/fcitx5.nix
         # Shell
         ../../shell/zsh.nix
+        ../../shell/quickshell/quickshell.nix
         # Virtualization (KVM)
         ./kvm.nix
         # Network Agent
@@ -95,7 +96,7 @@
     system.stateVersion = "26.11";
 
     i18n.defaultLocale = "zh_CN.UTF-8";
-
+    environment.systemPackages = [ pkgs.localpkg.kos-desktop ];
     home-manager.users.xiaoyintx =
         { ... }:
         {
