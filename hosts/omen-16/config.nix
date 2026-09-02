@@ -24,7 +24,6 @@
         ../../input-method/fcitx5.nix
         # Shell
         ../../shell/zsh.nix
-        ../../shell/quickshell/quickshell.nix
         # Virtualization (KVM)
         ./kvm.nix
         # Network Agent
@@ -47,13 +46,13 @@
         ../../software/genhao10/linux-activate.nix
         # Develop
         ../../software/develop/clang.nix # clangd：C/C++ 补全
-        ../../software/develop/clion.nix
+        # ../../software/develop/clion.nix
         ../../software/develop/gcc.nix
         ../../software/develop/zig.nix
         ../../software/develop/python.nix
         ../../software/develop/rust.nix
-        ../../software/develop/vscode/vscode.nix
-        ../../software/develop/vscode/vscode-settings.nix
+        # ../../software/develop/vscode/vscode.nix
+        # ../../software/develop/vscode/vscode-settings.nix
         ../../software/develop/zed/zed-editor.nix
         ../../software/develop/zed/zed-coding.nix # Zed 开发环境：任务/调试/脚手架
     ];
@@ -96,7 +95,7 @@
     system.stateVersion = "26.11";
 
     i18n.defaultLocale = "zh_CN.UTF-8";
-    environment.systemPackages = [ pkgs.localpkg.kos-desktop ];
+
     home-manager.users.xiaoyintx =
         { ... }:
         {

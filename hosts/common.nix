@@ -54,7 +54,7 @@ in
     nixpkgs.config = {
         allowUnfree = true;
         replacements = {
-            "https://github.com/" = "https://v6.gh-proxy.org/https://github.com/";
+            "https://github.com/" = "https://api.gitproxy.dev/github.com/";
         };
     };
 
@@ -67,13 +67,13 @@ in
             "https://mirror.sjtu.edu.cn/nix-channels/store"
         ]; # 之前写源的时候不知道为什么，到最后老是构建官方nixos源导致速度变慢
         # 官方源作为兜底
-        extra-substituters = [
-            "https://cache.nixos.org"
-            "https://attic.xuyh0120.win/lantian"
-        ];
-        extra-trusted-public-keys = [
-            "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-        ];
+        # extra-substituters = [
+        #     "https://cache.nixos.org"
+        #     "https://attic.xuyh0120.win/lantian"
+        # ];
+        # extra-trusted-public-keys = [
+        #     "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+        # ];
     };
 
     # 所有主机的通用配置
