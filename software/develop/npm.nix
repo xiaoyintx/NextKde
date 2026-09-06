@@ -1,11 +1,10 @@
 {
-    # 使用 Home Manager 安装 lutris
+    # Node.js 支持
     home-manager.users.xiaoyintx =
         { pkgs, ... }:
         {
             home.packages = with pkgs; [
-                feishu
-                lark-cli
+                nodejs_26
             ];
         };
 }

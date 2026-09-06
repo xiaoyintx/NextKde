@@ -41,6 +41,7 @@ in
     home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
+        backupFileExtension = "backup";
 
         # 在 common.nix 中只设置全局配置，不定义用户
         # 用户配置由各个主机导入 user/anyuser.nix 并设置版本
