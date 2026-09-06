@@ -2,6 +2,7 @@
     pkgs,
     config,
     lib,
+    inputs,
     ...
 }:
 
@@ -49,13 +50,19 @@
         # ../../software/develop/clion.nix
         ../../software/develop/gcc.nix
         ../../software/develop/zig.nix
+        ../../software/develop/npm.nix
         ../../software/develop/python.nix
         ../../software/develop/rust.nix
         # ../../software/develop/vscode/vscode.nix
         # ../../software/develop/vscode/vscode-settings.nix
         ../../software/develop/zed/zed-editor.nix
         ../../software/develop/zed/zed-coding.nix # Zed 开发环境：任务/调试/脚手架
+        # KOS Desktop Shell
+        inputs.nextkde.nixosModules.kos
     ];
+
+    # KOS Desktop Shell
+    services.kos.enable = true;
 
     # ============================================================
     # CPU：Intel Core i7-14650HX（Raptor Lake Refresh）

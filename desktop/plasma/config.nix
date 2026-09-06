@@ -27,6 +27,7 @@
         ]
         ++ (with pkgs.kdePackages; [
             partitionmanager
+            quickshell
             filelight
             plasma-browser-integration
             qtwebsockets

@@ -39,6 +39,12 @@
             inputs.nixpkgs.follows = "nixpkgs";
         };
 
+        nextkde = {
+            # Gitee 源：KOS Desktop Shell
+            url = "git+https://gitee.com/xiaoyintx_ciallo/test.git";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
+
     };
 
     outputs =

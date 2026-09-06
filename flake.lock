@@ -20,6 +20,26 @@
         "url": "https://gitee.com/mirrors/home-manager-nix.git"
       }
     },
+    "nextkde": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788682674,
+        "narHash": "sha256-F0OgpwBVGBgZkpdKnqepQ6KAHh1IJUD8P3Bj7YOZB7g=",
+        "ref": "refs/heads/main",
+        "rev": "5561ef860b03667edc5e393a13c3695e05cab737",
+        "revCount": 210,
+        "type": "git",
+        "url": "https://gitee.com/xiaoyintx_ciallo/test.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://gitee.com/xiaoyintx_ciallo/test.git"
+      }
+    },
     "nixos-hardware": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -71,6 +91,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nextkde": "nextkde",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2"
       }
