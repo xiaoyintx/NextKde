@@ -27,11 +27,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788772388,
-        "narHash": "sha256-fhvgt/cEqNvYOs6VBsm6ahMd6KBIes990qeG2Kdults=",
+        "lastModified": 1788772936,
+        "narHash": "sha256-dRvIbSIVvv4wT+ewcPdks7Eb44DmoqPzhSdx6j3I3fE=",
         "ref": "refs/heads/main",
-        "rev": "8d499a9fa0880c1997048fda2d77c1d1b6790eee",
-        "revCount": 327,
+        "rev": "70af7f48d6543b404bff4711b998669875729ec4",
+        "revCount": 328,
         "type": "git",
         "url": "https://gitee.com/xiaoyintx_ciallo/test.git"
       },
