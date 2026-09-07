@@ -28,7 +28,7 @@
         # Virtualization (KVM)
         ./kvm.nix
         # Network Agent
-        # ../../software/network/clash/clash.nix
+        ../../software/network/clash.nix
         # ../../software/network/clash/clash-proxy.nix
         # Desktop Software
         ../../software/browser/chrome.nix
@@ -63,6 +63,7 @@
 
     # KOS Desktop Shell
     services.kos.enable = true;
+    services.kos.weather.enable = true;
 
     # ============================================================
     # CPU：Intel Core i7-14650HX（Raptor Lake Refresh）
