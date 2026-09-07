@@ -40,7 +40,7 @@
         };
 
         nextkde = {
-            # Gitee 源：KOS Desktop Shell
+            # GitHub 源：KOS Desktop Shell
             url = "git+https://gitee.com/xiaoyintx_ciallo/test.git";
             inputs.nixpkgs.follows = "nixpkgs";
         };

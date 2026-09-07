@@ -62,8 +62,10 @@
     ];
 
     # KOS Desktop Shell
-    services.kos.enable = true;
-    services.kos.weather.enable = true;
+    services.kos = {
+        enable = true;
+        weather.enable = true;
+    };
 
     # ============================================================
     # CPU：Intel Core i7-14650HX（Raptor Lake Refresh）
