@@ -45,6 +45,20 @@
           apps = {
             enable = lib.mkEnableOption "KOS standalone applications (Calendar, Todo, Music) and the shared PIM service";
           };
+          # Readability defaults seeded into the Shell appearance config on
+          # first run. A theme author can flip them here to test the adaptive
+          # ink and hover-hint behaviour without touching a running session;
+          # the in-app Settings page remains the runtime control.
+          adaptiveTextColor = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Seed adaptive glass text colour (black/white by wallpaper luminance).";
+          };
+          hoverHints = lib.mkOption {
+            type = lib.types.bool;
+            default = true;
+            description = "Seed hover function-name hints on status and Control Center controls.";
+          };
         };
 
         config = lib.mkIf cfg.enable {
@@ -98,6 +112,34 @@
                   elif [[ -d ${kos}/share/kos-desktop/shared/qml ]]; then
                     cp -rL --no-preserve=mode ${kos}/share/kos-desktop/shared/qml/. "$shell_config/shared/qml/"
                   fi
+                '';
+              };
+            };
+
+            # Oneshot: seed the appearance readability defaults before the
+            # Shell starts. Only writes when no config exists so the running
+            # session (and the in-app Settings page) stays authoritative.
+            kos-appearance-init = {
+              description = "KOS appearance readability defaults";
+              wantedBy = [ "default.target" ];
+              before = [ "kos-shell.service" ];
+              serviceConfig = {
+                Type = "oneshot";
+                ExecStart = pkgs.writeShellScript "kos-appearance-init" ''
+                  set -e
+                  state_home="''${XDG_STATE_HOME:-$HOME/.local/state}"
+                  config_file="$state_home/quickshell/kos/appearance/config.json"
+                  if [[ -e "$config_file" ]]; then
+                    exit 0
+                  fi
+                  mkdir -p "$(dirname "$config_file")"
+                  cat > "$config_file" <<'EOF'
+${builtins.toJSON {
+  version = 11;
+  adaptiveTextColor = cfg.adaptiveTextColor;
+  hoverHints = cfg.hoverHints;
+}}
+EOF
                 '';
               };
             };
@@ -190,8 +232,8 @@
             kos-shell = {
               description = "KOS Quickshell desktop shell";
               wantedBy = [ "default.target" ];
-              requires = [ "kos-platform.service" "kos-data.service" "kos-shell-init.service" ];
-              after = [ "kos-platform.service" "kos-data.service" "kos-shell-init.service" ];
+              requires = [ "kos-platform.service" "kos-data.service" "kos-shell-init.service" "kos-appearance-init.service" ];
+              after = [ "kos-platform.service" "kos-data.service" "kos-shell-init.service" "kos-appearance-init.service" ];
               partOf = [ "graphical-session.target" ];
               serviceConfig = {
                 Type = "simple";
