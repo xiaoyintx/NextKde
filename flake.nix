@@ -23,6 +23,7 @@
           shell-data-service kos-settings kos-platform kosctl
           kwin-dock-window-animation kwin-context-menu-input kwin-effects-glass
           kwin-decoration-liquid-glass;
+        kos-apps = kos-desktop.passthru.apps;
         default = kos-desktop;
       };
 
@@ -41,6 +42,9 @@
           weather = {
             enable = lib.mkEnableOption "KOS Weather standalone application";
           };
+          apps = {
+            enable = lib.mkEnableOption "KOS standalone applications (Calendar, Todo, Music) and the shared PIM service";
+          };
         };
 
         config = lib.mkIf cfg.enable {
@@ -55,6 +59,8 @@
             kos.passthru.kwin-decoration-liquid-glass
           ] ++ lib.optionals cfg.weather.enable [
             kos.passthru.weather
+          ] ++ lib.optionals cfg.apps.enable [
+            kos.passthru.apps
           ];
 
           # KWin plugins live under lib/kwin/ in the Nix store
@@ -86,11 +92,11 @@
                   # Copy shell QML (follow symlinks, ignore source permissions)
                   cp -rL --no-preserve=mode ${kos}/share/kos-desktop/shell/. "$shell_config/"
                   
-                  # Copy shared QML controls
-                  if [[ -d ${kos}/share/shared/qml/controls ]]; then
-                    cp -rL --no-preserve=mode ${kos}/share/shared/qml/controls "$shell_config/shared/qml/"
-                  elif [[ -d ${kos}/share/kos-desktop/shared/qml/controls ]]; then
-                    cp -rL --no-preserve=mode ${kos}/share/kos-desktop/shared/qml/controls "$shell_config/shared/qml/"
+                  # Copy shared QML (controls, foundation, colorize)
+                  if [[ -d ${kos}/share/shared/qml ]]; then
+                    cp -rL --no-preserve=mode ${kos}/share/shared/qml/. "$shell_config/shared/qml/"
+                  elif [[ -d ${kos}/share/kos-desktop/shared/qml ]]; then
+                    cp -rL --no-preserve=mode ${kos}/share/kos-desktop/shared/qml/. "$shell_config/shared/qml/"
                   fi
                 '';
               };
