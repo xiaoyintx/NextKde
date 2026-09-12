@@ -135,6 +135,10 @@ KOS 在 NixOS 上使用以下组件:
 
 所有组件都通过 systemd 用户服务管理，支持自动重启和会话集成。
 
+模块还会通过 `kos-kwin-effects` 用户服务把 KWin 的 Glass 特效与 Liquid Glass
+窗口装饰写入 `kwinrc`，并在 KWin 运行时立即加载；首次安装后若窗口玻璃没有生效，
+注销并重新登录一次即可。
+
 ## 卸载
 
 1. 在 NixOS 配置中禁用:

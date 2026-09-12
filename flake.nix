@@ -102,6 +102,58 @@
               };
             };
 
+            # Oneshot: mirror `kosctl install`'s KWin setup. Enables the KOS
+            # Glass effect and the Liquid Glass decoration in kwinrc, then
+            # applies them to the running compositor when KWin is already up.
+            kos-kwin-effects = {
+              description = "Enable KOS KWin effects and Liquid Glass decoration";
+              wantedBy = [ "default.target" ];
+              after = [ "graphical-session.target" "plasma-kwin_wayland.service" ];
+              partOf = [ "graphical-session.target" ];
+              serviceConfig = {
+                Type = "oneshot";
+                ExecStart = pkgs.writeShellScript "kos-kwin-effects" ''
+                  set -e
+                  kwriteconfig="${pkgs.kdePackages.kconfig}/bin/kwriteconfig6"
+
+                  # Glass is a fork of KWin Blur and cannot run alongside it.
+                  "$kwriteconfig" --file kwinrc --group Plugins \
+                    --key blurEnabled false --type bool --notify false
+                  for effect in kos_dock_window_animation kos_context_menu_input glass; do
+                    "$kwriteconfig" --file kwinrc --group Plugins \
+                      --key "$effect""Enabled" true --type bool --notify false
+                  done
+
+                  # Select the compiled Liquid Glass window decoration. `theme`
+                  # only applies to multi-theme packages such as Aurorae, so a
+                  # stale value must be removed.
+                  "$kwriteconfig" --file kwinrc --group org.kde.kdecoration3 \
+                    --key library kos_liquid_glass --notify false
+                  "$kwriteconfig" --file kwinrc --group org.kde.kdecoration3 \
+                    --key theme --delete --notify false || true
+                  "$kwriteconfig" --file kwinrc --group Effect-blurplus \
+                    --key BlurDecorations true --type bool --notify false
+
+                  # Apply to the running session. Writing kwinrc only takes
+                  # effect after the next KWin start, so load the already
+                  # installed plugins explicitly when KWin is on the bus.
+                  busctl="${pkgs.systemd}/bin/busctl"
+                  if "$busctl" --user status org.kde.KWin >/dev/null 2>&1; then
+                    "$busctl" --user call org.kde.KWin /Effects \
+                      org.kde.kwin.Effects unloadEffect s blur >/dev/null 2>&1 || true
+                    for effect in kos_dock_window_animation kos_context_menu_input glass; do
+                      "$busctl" --user call org.kde.KWin /Effects \
+                        org.kde.kwin.Effects loadEffect s "$effect" >/dev/null 2>&1 || true
+                      "$busctl" --user call org.kde.KWin /Effects \
+                        org.kde.kwin.Effects reconfigureEffect s "$effect" >/dev/null 2>&1 || true
+                    done
+                    "$busctl" --user call org.kde.KWin /KWin \
+                      org.kde.KWin reconfigure >/dev/null 2>&1 || true
+                  fi
+                '';
+              };
+            };
+
             # Platform daemon
             kos-platform = {
               description = "KOS platform integration service";
@@ -151,6 +203,20 @@
                 ];
                 Restart = "on-failure";
                 RestartSec = 2;
+              };
+            };
+          } // lib.optionalAttrs cfg.apps.enable {
+            # Refresh the KDE application database so the standalone apps show
+            # up immediately after a rebuild instead of waiting for a session
+            # restart.
+            kos-apps-cache = {
+              description = "Refresh the KDE application database for KOS apps";
+              wantedBy = [ "default.target" ];
+              after = [ "kos-shell-init.service" ];
+              partOf = [ "graphical-session.target" ];
+              serviceConfig = {
+                Type = "oneshot";
+                ExecStart = "${pkgs.kdePackages.kservice}/bin/kbuildsycoca6 --noincremental";
               };
             };
           };
