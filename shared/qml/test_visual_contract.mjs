@@ -486,6 +486,23 @@ assert.match(settingsMain, /bridge\.updateAdaptiveTextColor\(/,
     "the Settings app toggles adaptive text colour");
 assert.match(settingsMain, /bridge\.updateHoverHints\(/,
     "the Settings app toggles hover hints");
+assert.doesNotMatch(settingsMain,
+    /accentColor: "#ffcc00"[\s\S]{0,200}setAdaptiveTextColor/,
+    "the adaptive switch reuses the standard settings control colour");
+// Control Center iconography must follow the same adaptive ink as its labels;
+// a hardcoded white glyph disappears over a bright wallpaper.
+assert.match(controlCenterPanel,
+    /colorizationColor: ThemeService\.isDark \? "#000000" : ThemeService\.foregroundColor/,
+    "the theme glyph adapts outside its inverted dark card");
+assert.match(controlCenterPanel,
+    /colorizationColor: ControlCenterService\.nightLightActive[\s\S]{0,80}ThemeService\.foregroundColor/,
+    "the night-light glyph adapts while inactive");
+assert.match(controlCenterPanel,
+    /glyphColor: NetworkService\.wifiEnabled[\s\S]{0,80}ThemeService\.foregroundColor/,
+    "the Wi-Fi glyph adapts while the radio is off");
+assert.match(controlCenterPanel,
+    /glyphColor: active[\s\S]{0,80}ThemeService\.foregroundColor/,
+    "the Bluetooth glyph adapts while the radio is off");
 const settingsMainCpp = read("../../apps/settings/src/main.cpp");
 assert.match(settingsMainCpp,
     /Q_INVOKABLE QVariantMap updateAdaptiveTextColor\(bool enabled\)/,

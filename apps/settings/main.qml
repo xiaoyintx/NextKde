@@ -2200,7 +2200,7 @@ ApplicationWindow {
                         }
                         LiquidControls.LiquidGlassSwitch {
                             checked: themePage.adaptiveTextColor
-                            accentColor: "#ffcc00"
+                            accentColor: "#0a84ff"
                             trackColor: theme.divider
                             onToggled: function(checked) {
                                 themePage.setAdaptiveTextColor(checked)
@@ -2245,7 +2245,7 @@ ApplicationWindow {
                         }
                         LiquidControls.LiquidGlassSwitch {
                             checked: themePage.hoverHints
-                            accentColor: "#64d2ff"
+                            accentColor: "#0a84ff"
                             trackColor: theme.divider
                             onToggled: function(checked) {
                                 themePage.setHoverHints(checked)
